@@ -4,7 +4,7 @@ Getting Started
 Running Python Interpreter
 --------------------------
 
-Python comes with an interactive interpreter. When you type ``python`` in your shell or command prompt, the python interpreter becomes active with a ``>>>`` prompt and awaits for your commands.
+Python comes with an interactive interpreter. When you type ``python`` in your shell or command prompt, the python interpreter becomes active with a ``>>>`` prompt and waits for your commands.
 
 .. code-block:: python
 
@@ -129,6 +129,7 @@ When executing assignments, python evaluates the right hand side first and then 
 
     x, y = 2, 6
     x, y = y, x + 2
+    print x, y
     
 .. problem:: What will be the output of the following program.
 
@@ -141,7 +142,7 @@ When executing assignments, python evaluates the right hand side first and then 
 Numbers
 -------
 
-We've already how to work with numbers.
+We already know how to work with numbers.
 
 .. code-block:: python
  
@@ -166,9 +167,9 @@ Python supports the following operators on numbers.
 * ``*`` multiplication
 * ``/`` division
 * ``**`` exponent
-* ``%`` reminder
+* ``%`` remainder
 
-Lets try them on integers.
+Let's try them on integers.
 
 .. code-block:: python
  
@@ -185,7 +186,7 @@ Lets try them on integers.
     >>> 7 % 2
     1
 
-If you notice, the result ``7 / 2`` is ``3`` not ``3.5``. It is because the ``/`` operator when work on integers produces only an integer.
+If you notice, the result ``7 / 2`` is ``3`` not ``3.5``. It is because the ``/`` operator when working on integers, produces only an integer.
 
 .. code-block:: python
  
@@ -255,7 +256,7 @@ All the operators except `**` are left-associcate, that means that the applicati
 
 .. code-block:: python
 
-    print 5/2, 5.0/2, 5/2.0
+    print 5/2, 5.0/2, 5/2.0, 5/2.
     print 24/4/2, 24/4*2
 
 .. problem:: What will be output of the following program?
@@ -298,7 +299,7 @@ It is even possible to combine these operators.
     >>> 2 < 3 < 4 < 5 < 6
     True
     
-The conditional operators works even on strings.
+The conditional operators work even on strings - the ordering being the lexical order.
 
 .. code-block:: python
 
@@ -307,7 +308,7 @@ The conditional operators works even on strings.
     >>> "python" > "java"
     True
     
-There are some logical operators to combine boolean values from comparision.
+There are few logical operators to combine boolean values.
 
 * `a and b` is True only if both `a` and `b` are True.
 * `a or b` is True if either `a` or `b` is True.
@@ -364,7 +365,7 @@ The ``if`` statement is used to execute a piece of code only when a boolean expr
 
 In this example, ``print 'even'`` is executed only when ``x % 2 == 0`` is ``True``. 
 
-The code associated with ``if`` can be written as a separate indented block of code, which is often the case when there are more than one statement to be executed.    
+The code associated with ``if`` can be written as a separate indented block of code, which is often the case when there is more than one statement to be executed.    
 
 .. code-block:: python
 
@@ -375,7 +376,7 @@ The code associated with ``if`` can be written as a separate indented block of c
     >>>
 
 Notice the indentation. Python uses indentation to identify code blocks.
-The ``...`` is the secondary prompt, which python uses to denote that it is expecting some more input.
+The ``...`` is the secondary prompt, which python interpreter uses to denote that it is expecting some more input.
 
 The ``if`` statement can have optional ``else`` clause, which is executed when the boolean expression is ``False``.
 
@@ -405,7 +406,7 @@ The ``if`` statement can have optional ``elif`` clauses when there are more cond
     two digit number
     >>>
     
-.. problem :: What happens the following code is executed? Will it give any error? Explain the reasons.
+.. problem :: What happens when the following code is executed? Will it give any error? Explain the reasons.
 
 .. code-block:: python
 
@@ -440,7 +441,7 @@ Just like a value can be associated with a name, a piece of logic can also be as
     
 The body of the function is indented. Indentation is the Python's way of grouping statements. 
 
-The functions be used in any expressions.
+The functions can be used in any expressions.
 
 .. code-block:: python
 
@@ -483,7 +484,7 @@ There is another way of creating functions, using the `lambda` operator.
     >>> fxy(lambda x: x ** 3, 2, 3)
     35
 
-The ``lambda`` operator becomes handly when writing small functions to be 
+The ``lambda`` operator becomes handy when writing small functions to be 
 passed as arguments etc. We'll see more of it as we get into solving more 
 serious problems.
 
@@ -494,7 +495,7 @@ serious problems.
     print sum_of_squares(5)
     print sum_of_squares(2*5)
     
-.. problem:: What will be output of the following program?
+.. problem:: What will be the output of the following program?
 
 .. code-block:: python
 
@@ -508,7 +509,7 @@ serious problems.
 Built-in Functions
 ^^^^^^^^^^^^^^^^^^
 
-Python provides some built-in functions. 
+Python provides some useful functions as built-ins. 
 
 .. code-block:: python
 
@@ -530,7 +531,7 @@ For example, `upper` is a method available on string objects.
     >>> print x.upper()
     HELLO
     
-I've already said methods are also functions. They can be assigned to other variables can called separately.
+As already told, methods are also functions. They can be assigned to other variables can be called separately.
 
 .. code-block:: python
 
@@ -569,13 +570,13 @@ Multi-line strings can be written using three single quotes or three double quot
 
 String objects have some useful methods. Some of them are:
 
-* center - center aligns a string
-* upper - converts the string into upper case
-* lower - converts the string into lower case
-* title - converts the string into title case
-* string - strips the leading and trailing white space
-* replace - replace occurance of a text with given replacement
-* count - counts number of occurances of a char or string inside the given string
+* ``center`` - center aligns a string
+* ``upper`` - converts the string into upper case
+* ``lower`` - converts the string into lower case
+* ``title`` - converts the string into title case
+* ``string`` - strips the leading and trailing white space
+* ``replace`` - replace occurance of a text with given replacement
+* ``count`` - counts number of occurances of a char or string inside the given string
     
 Try try some of them.
 
@@ -594,7 +595,7 @@ Try try some of them.
     >>> " hello   ".strip()
     'hello'
 
-The built-in function string coverts any object into its string representation.
+The built-in function `str` coverts any object into its string representation.
 
 .. code-block:: python
 
@@ -605,7 +606,7 @@ The built-in function string coverts any object into its string representation.
 
 .. problem:: Write a function to count the number of zeros in a number. Use it to count number of zeros in `2 ** 100` and `5 ** 100`.
 
-.. problem:: Write a function 'strcmp` to compare two strings, ignoring the case.
+.. problem:: Write a function `strcmp` to compare two strings, ignoring the case.
 
 .. code-block:: python
 
