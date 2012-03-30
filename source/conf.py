@@ -37,7 +37,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Python Tutorial'
+project = u'The Python Practice Book'
 copyright = u'2009, Anand Chitipothu'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -160,7 +160,7 @@ html_static_path = ['_static']
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'PythonTutorialdoc'
 
-html_title = "Python Tutorial"
+html_title = "The Python Practice Book"
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -174,7 +174,7 @@ html_title = "Python Tutorial"
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'PythonTutorial.tex', u'Python Tutorial Documentation',
+  ('index', 'python-practice-book.tex', u'The Python Practice Book',
    u'Anand Chitipothu', 'manual'),
 ]
 
