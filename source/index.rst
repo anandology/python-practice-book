@@ -12,6 +12,7 @@ Table of Contents
 
    1-getting-started
    datastructures
+   modules
    functional_programming
    object_oriented_programming
    standard_library
