@@ -233,7 +233,7 @@ See ``pydoc list`` for more information on lists.
     >>> sum([1, 2, 3])
     >>> 4
 
-.. problem:: What happens when the above ``sum`` function is called with a list of strings? can you make your ``sum`` function work for a list of strings as well.
+.. problem:: What happens when the above ``sum`` function is called with a list of strings? Can you make your ``sum`` function work for a list of strings as well.
 
 .. code-block:: python
 
@@ -265,7 +265,7 @@ See ``pydoc list`` for more information on lists.
     >>> reverse(reverse([1, 2, 3, 4]))
     [1, 2, 3, 4]
 
-.. problem:: Python has built-in functions ``min`` and ``max`` to compute minimum and maximum of a given list. provide an implementation for these functions. What happens when you call your ``min`` and ``max`` functions with a list of strings? 
+.. problem:: Python has built-in functions ``min`` and ``max`` to compute minimum and maximum of a given list. Provide an implementation for these functions. What happens when you call your ``min`` and ``max`` functions with a list of strings? 
 
 .. problem:: Cumulative sum of a list ``[a, b, c, ...]`` is defined as ``[a, a+b, a+b+c, ...]``. Write a function ``cumulative_sum`` to compute cumulative sum of a list. Does your implementation work for a list of strings?
 
@@ -306,6 +306,13 @@ See ``pydoc list`` for more information on lists.
 	>>> unique(["python", "java", "Python", "Java"], key=lambda s: s.lower())
 	["python", "java"]
     
+.. problem:: Write a function `dups` to find all duplicates in the list.
+
+.. code-block:: python
+
+	>>> dups([1, 2, 1, 3, 2, 5])
+	[1, 2]
+
 .. problem:: Write a function `group(list, size)` that take a list and splits into smaller lists of given size.
 
 .. code-block:: python
@@ -592,7 +599,7 @@ List Comprehensions
 -------------------
 
 List Comprehensions provide a concise way of creating lists.
-Many times a complex task can be modeled in a single line.
+Many times a complex task can be modelled in a single line.
 
 Here are some simple examples for transforming a list.
 
