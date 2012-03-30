@@ -297,7 +297,14 @@ Installing third-party modules
 
 PyPI, The Python Package Index maintains the list of Python packages available. The third-party module developers usually register at PyPI and uploads their packages there.
 
-The standard way to installing a python module is using `pip` or `easy_install`. The first one is preferred.
+The standard way to installing a python module is using `pip` or `easy_install`. Pip is more modern and perferred.
+
+Lets start with installing `easy_install`.
+
+* Download the easy_install install script `ez_setup.py<http://peak.telecommunity.com/dist/ez_setup.py>`_.
+* Run it using Python.
+
+That will install ``easy_install``, the script used to install third-party python packages.
 
 Before installing new packages, lets understand how to manage virtual environments for installing python packages. 
 
@@ -305,8 +312,9 @@ Earlier the only way of installing python packages was system wide. When used th
 
 To install ``virtualenv``:
 
-* Download the bootstrap script from https://github.com/pypa/virtualenv/blob/develop/virtualenv.py
-* Run it using ``python virtualenv.py``
+    $ easy_install virtualenv
+    
+Installing virtualenv also installs the `pip` command, a better replace for `easy_install`.
 
 Once it is installed, create a new virtual env by running the ``virtualenv`` command.
 
@@ -337,8 +345,6 @@ Now all the packages installed will be limited to this virtualenv. Lets try to i
     $ pip install tablib
 
 This installs a third-party library called ``tablib``.
-
-The ``pip`` command is already installed by ``virtualenv``, so we don't have to install it again.
 
 The ``tablib`` library is a small little library to work with tabular data and write csv and Excel files.
 
