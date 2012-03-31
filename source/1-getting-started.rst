@@ -499,12 +499,73 @@ serious problems.
 
 .. code-block:: python
 
+	x = 1
+	def f():
+		return x
+	print x
+	print f()
+
+.. problem:: What will be the output of the following program?
+
+.. code-block:: python
+
+	x = 1
+	def f():
+		x = 2
+		return x
+	print x
+	print f()
+	print x
+
+.. problem:: What will be the output of the following program?
+
+.. code-block:: python
+
+	x = 1
+	def f():
+		y = x
+		x = 2
+		return x + y
+	print x
+	print f()
+	print x
+
+.. problem:: What will be the output of the following program?
+
+.. code-block:: python
+
     x = 2
     def f(a):
         x = a * a
         return x
     y = f(3)
     print x, y
+	
+Functions can be called with keyword arguments.
+
+	>>> def difference(x, y):
+	...    return x - y
+	...
+	>>> difference(5, 2)
+	3
+	>>> difference(x=5, y=2)
+	3
+	>>> difference(5, y=2)
+	3
+	>>> difference(y=2, x=3)
+	3
+	
+And some arguments can have default values.
+
+	>>> def increment(x, amount=1):
+	...		return x + amount
+	...
+	>>> def increment(10)
+	1
+	>>> increment(10, 5)
+	15
+	>>> increment(10, amount=2)
+	12
 
 Built-in Functions
 ^^^^^^^^^^^^^^^^^^
