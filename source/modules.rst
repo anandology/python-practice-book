@@ -301,7 +301,7 @@ The standard way to installing a python module is using `pip` or `easy_install`.
 
 Lets start with installing `easy_install`.
 
-* Download the easy_install install script `ez_setup.py<http://peak.telecommunity.com/dist/ez_setup.py>`_.
+* Download the easy_install install script `ez_setup.py <http://peak.telecommunity.com/dist/ez_setup.py>`_.
 * Run it using Python.
 
 That will install ``easy_install``, the script used to install third-party python packages.
