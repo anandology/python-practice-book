@@ -6,6 +6,8 @@ Modules are reusable libraries of code in Python. Python comes with many standar
 
 A module is imported using the `import` statement. 
 
+.. code-block:: python
+
     >>> import time
     >>> print time.asctime()
     'Fri Mar 30 12:59:21 2012'
@@ -14,6 +16,8 @@ In this example, we've imported the `time` module and called the `asctime`
 function from that module, which returns current time as a string.
 
 There is also another way to use the import statement.
+
+.. code-block:: python
 
     >>> from time import asctime
     >>> asctime()

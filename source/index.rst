@@ -15,6 +15,4 @@ Table of Contents
    modules
    functional_programming
    object_oriented_programming
-   standard_library
-   references
 

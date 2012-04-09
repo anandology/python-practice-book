@@ -1,4 +1,3 @@
-
 ***************************
 Object Oriented Programming
 ***************************
@@ -6,7 +5,9 @@ Object Oriented Programming
 State
 =====
 
-Suppose we want to model a bank account with support for ``deposit`` and ``withdraw`` operations. One way to do that is by using global state as shown in the following example. ::
+Suppose we want to model a bank account with support for ``deposit`` and ``withdraw`` operations. One way to do that is by using global state as shown in the following example.
+
+.. code-block:: python
  
     balance = 0
 
@@ -22,7 +23,9 @@ Suppose we want to model a bank account with support for ``deposit`` and ``withd
 
 The above example is good enough only if we want to have just a single account. Things start getting complicated if want to model multiple accounts.
 
-We can solve the problem by making the state local, probably by using a dictionary to store the state. ::
+We can solve the problem by making the state local, probably by using a dictionary to store the state. 
+
+.. code-block:: python
 
     def make_account():
         return {'balance': 0}
@@ -35,7 +38,9 @@ We can solve the problem by making the state local, probably by using a dictiona
         account['balance'] -= amount
         return account['balance']
 
-With this it is possible to work with multiple accounts at the same time. ::
+With this it is possible to work with multiple accounts at the same time. 
+
+.. code-block:: python
 
     >>> a = make_account()
     >>> b = make_account()
@@ -79,7 +84,9 @@ Classes and Objects
 Inheritance
 ===========
  
-Let us try to create a little more sophisticated account type where the account holder has to maintain a pre-determined minimum balance. ::
+Let us try to create a little more sophisticated account type where the account holder has to maintain a pre-determined minimum balance. 
+
+.. code-block:: python
 
     class MinimumBalanceAccount(BankAccount):
         def __init__(self, minimum_balance):
@@ -165,16 +172,15 @@ Let us try to create a little more sophisticated account type where the account 
             for s in self.shapes:
                 s.paint(canvas)
 
-Errors and Exceptions
-=====================
-
 Special Class Methods
 =====================
 
 In Python, a class can implement certain operations that are invoked by special syntax (such as arithmetic operations or subscripting and slicing) by defining methods with special names. 
 This is Python's approach to operator overloading, allowing classes to define their own behavior with respect to language operators.
 
-For example, the ``+`` operator invokes ``__add__`` method. ::
+For example, the ``+`` operator invokes ``__add__`` method. 
+
+.. code-block:: python
 
     >>> a, b = 1, 2
     >>> a + b
@@ -188,7 +194,7 @@ Just like ``__add__`` is called for ``+`` operator, ``__sub__``, ``__mul__`` and
 
 Suppose we want to do arithmetic with rational numbers. We want to be able to add, subtract, multiply, and divide them and to test whether two rational numbers are equal.
 
-We can add, subtract, multiply, divide, and test equality by using the following relations: ::
+We can add, subtract, multiply, divide, and test equality by using the following relations: 
 
     n1/d1 + n2/d2 = (n1*d2 + n2*d1)/(d1*d2)
     n1/d1 - n2/d2 = (n1*d2 - n2*d1)/(d1*d2)
@@ -197,7 +203,9 @@ We can add, subtract, multiply, divide, and test equality by using the following
     
     n1/d1 == n2/d2 if and only if n1*d2 == n2*d1
 
-Lets write the rational number class. ::
+Lets write the rational number class.
+
+.. code-block:: python
 
     class RationalNumber:
         """
@@ -254,3 +262,182 @@ Lets write the rational number class. ::
             return "%s/%s" % (self.n, self.d)
 
         __repr__ = __str__
+
+Errors and Exceptions
+=====================
+
+We've already seen exceptions in various places. Python gives ``NameError`` 
+when we try to use a variable that is not defined.
+
+.. code-block:: python
+
+    >>> foo
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    NameError: name 'foo' is not defined
+    
+try adding a string to an integer:
+
+.. code-block:: python
+
+    >>> "foo" + 2
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    TypeError: cannot concatenate 'str' and 'int' objects
+
+try dividing a number by 0:
+
+.. code-block:: python
+
+    >>> 2/0
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    ZeroDivisionError: integer division or modulo by zero
+    
+or, try opening a file that is not there:
+
+.. code-block:: python
+
+    >>> open("not-there.txt")
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    IOError: [Errno 2] No such file or directory: 'not-there.txt'
+    
+Python raises exception in case errors. We can write programs to handle such 
+errors. We too can raise exceptions when an error case in encountered.
+
+Exceptions are handled by using the try-except statements.
+
+.. code-block:: python
+
+    def main():
+        filename = sys.argv[1]
+        try:
+            for row in parse_csv(filename):
+                print row
+        except IOError:
+            print >> sys.stderr, "The given file doesn't exist: ", filename
+            sys.exit(1)
+
+This above example prints an error message and exits with an error status when an IOError is encountered.
+
+The `except` statement can be written in multiple ways:
+
+.. code-block:: python
+
+    # catch all exceptions
+    try:
+        ...
+    except:
+    
+    # catch just one exception
+    try:
+        ...
+    except IOError:
+        ...
+    
+    # catch one exception, but provide the exception object
+    try:
+        ...
+    except IOError, e:
+        ...
+
+    # catch more than one exception
+    try:
+        ...
+    except (IOError, ValueError), e:
+        ...
+
+It is possible to have more than one `except` statements with one `try`.
+
+.. code-block:: python
+
+    try:
+        ...
+    except IOError, e:
+        print >> sys.stderr, "Unable to open the file (%s): %s" % (str(e), filename)
+        sys.exit(1)
+    except FormatError, e:
+        print >> sys.stderr, "File is badly formatted (%s): %s" % (str(e), filename)
+
+The `try` statement can have an optional `else` clause, which is 
+executed only if no exception is raised in the try-block.
+
+.. code-block:: python
+
+    try:
+        ...
+    except IOError, e:
+        print >> sys.stderr, "Unable to open the file (%s): %s" % (str(e), filename)
+        sys.exit(1)
+    else:
+        print "successfully opened the file", filename
+
+There can be an optional `else` clause with a `try` statement, which is executed 
+irrespective of whether or not exception has occured.
+
+.. code-block:: python
+
+    try:
+        ...
+    except IOError, e:
+        print >> sys.stderr, "Unable to open the file (%s): %s" % (str(e), filename)
+        sys.exit(1)
+    finally:
+        delete_temp_files()
+        
+Exception is raised using the raised keyword.
+
+.. code-block:: python
+
+    raise Exception("error message")
+    
+All the exceptions are extended from the built-in `Exception` class.
+
+    class ParseError(Exception):
+        pass
+
+.. problem:: What will be the output of the following program?
+
+.. code-block:: python
+
+    try:
+        print "a"
+    except:
+        print "b"
+    else:
+        print "c"
+    finally:
+        print "d"
+    
+.. problem:: What will be the output of the following program?
+
+.. code-block:: python
+
+    try:
+        print "a"
+        raise Exception("doom")
+    except:
+        print "b"
+    else:
+        print "c"
+    finally:
+        print "d"
+
+
+.. problem:: What will be the output of the following program?
+
+.. code-block:: python
+
+    def f():
+        try:
+            print "a"
+            return
+        except:
+            print "b"
+        else:
+            print "c"
+        finally:
+            print "d"
+            
+    f()
