@@ -10,9 +10,9 @@ Table of Contents
    :numbered:
    :maxdepth: 2
 
-   1-getting-started
+   getting-started
    datastructures
-   modules
    functional_programming
+   modules
    object_oriented_programming
 
