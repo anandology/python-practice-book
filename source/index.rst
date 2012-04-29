@@ -11,7 +11,7 @@ Table of Contents
    :maxdepth: 2
 
    getting-started
-   datastructures
+   working-with-data
    functional_programming
    modules
    object_oriented_programming
