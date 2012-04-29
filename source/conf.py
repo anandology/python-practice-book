@@ -38,8 +38,11 @@ master_doc = 'index'
 
 # General information about the project.
 project = u''
+
+from jinja2 import Markup
+
 #copyright = u'2009, Anand Chitipothu'
-copyright = u'2012, Anand Chitipothu'
+copyright = Markup('2012, <a href="http://anandology.com">Anand Chitipothu</a>')
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
