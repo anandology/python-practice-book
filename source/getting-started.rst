@@ -492,8 +492,8 @@ serious problems.
 
 .. code-block:: python
 
-    print sum_of_squares(5)
-    print sum_of_squares(2*5)
+    print square(5)
+    print square(2*5)
     
 .. problem:: What will be the output of the following program?
 
@@ -552,7 +552,7 @@ Functions can be called with keyword arguments.
 	3
 	>>> difference(5, y=2)
 	3
-	>>> difference(y=2, x=3)
+	>>> difference(y=2, x=5)
 	3
 	
 And some arguments can have default values.
