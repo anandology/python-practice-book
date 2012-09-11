@@ -5,7 +5,7 @@ Working with Data
 Lists
 -----
 
-Python has built-in support for lists. Lists are variable length arrays which can contain different types of objects.
+We've already seen quick introduction to lists in the previous chapter.
 
 .. code-block:: python
 
@@ -170,6 +170,19 @@ The ``sort`` method sorts a list in place.
     >>> a
     [2, 3, 4, 7 10]
 
+The built-in function ``sorted`` returns a new sorted list without modifying
+the source list.
+
+.. code-block:: python
+
+    >>> a = [4, 3, 5, 9, 2]
+    >>> sorted(a)
+    [2, 3, 4, 5, 9]
+    >>> a
+    [4, 3, 5, 9, 2]
+
+The behavior of ``sort`` method and ``sorted`` function is exactly same except that sorted returns a new list instead of modifying the given list.
+
 The ``sort`` method works even when the list has different types of objects and even lists.
 
 .. code-block:: python
@@ -191,28 +204,8 @@ We can optionally specify a function as sort key.
     >>> a.sort(key=lambda x: x[1])
     >>> a
     [[6, 1], [2, 3],  [4 6]]
-    
-Python 2.4 has introduced a new function ``sorted``, which works similar to ``sort`` method but returns a new sorted list instead of modifying the original list.
 
-.. code-block:: python
-
-    >>> a = [4, 3, 5, 9, 2]
-    >>> sorted(a)
-    [2, 3, 4, 5, 9]
-    >>> a
-    [4, 3, 5, 9, 2]
-
-Python provides ``for`` statement to iterate over a list. A ``for`` statement executes the specified block of code for every element in a list. 
-
-.. code-block:: python
-   
-    for x in [1, 2, 3, 4]:
-        print x
-   
-    for i  in range(10):
-       print i, i*i, i*i*i
-
-See ``pydoc list`` for more information on lists.
+This sorts all the elements of the list based on the value of second element of each entry.
 
 .. problem:: What will be the output of the following program?
 
@@ -225,7 +218,28 @@ See ``pydoc list`` for more information on lists.
 	print x
 	x[2] = 2
 	print x
+
+.. problem:: Write a function ``lensort`` to sort a list of strings based on length.
+
+.. code-block:: python
+
+    >>> lensort(['python', 'perl', 'java', 'c', 'haskell', 'ruby'])
+    ['c', 'perl', 'java', 'ruby', 'python', 'haskell']
 	
+
+The for Statement
+^^^^^^^^^^^^^^^^^
+
+Python provides ``for`` statement to iterate over a list. A ``for`` statement executes the specified block of code for every element in a list. 
+
+.. code-block:: python
+   
+    for x in [1, 2, 3, 4]:
+        print x
+   
+    for i  in range(10):
+       print i, i*i, i*i*i
+
 .. problem:: Python has a built-in function ``sum`` to find sum of all elements of a list. Provide an implementation for ``sum``. 
 
 .. code-block:: python
@@ -250,13 +264,16 @@ See ``pydoc list`` for more information on lists.
     6
 
 .. problem:: Write a function ``factorial`` to compute factorial of a number.
+   Can you use the ``product`` function defined in the previous example to
+   compute factorial?
 
 .. code-block:: python
 
     >>> factorial(4)
     24
 
-.. problem:: Write a function ``reverse`` to reverse a list. Can you do this without using list slicing?
+.. problem:: Write a function ``reverse`` to reverse a list. Can you do this
+   without using list slicing?
 
 .. code-block:: python
 
@@ -265,9 +282,14 @@ See ``pydoc list`` for more information on lists.
     >>> reverse(reverse([1, 2, 3, 4]))
     [1, 2, 3, 4]
 
-.. problem:: Python has built-in functions ``min`` and ``max`` to compute minimum and maximum of a given list. Provide an implementation for these functions. What happens when you call your ``min`` and ``max`` functions with a list of strings? 
+.. problem:: Python has built-in functions ``min`` and ``max`` to compute
+   minimum and maximum of a given list. Provide an implementation for these
+   functions. What happens when you call your ``min`` and ``max`` functions with a
+   list of strings? 
 
-.. problem:: Cumulative sum of a list ``[a, b, c, ...]`` is defined as ``[a, a+b, a+b+c, ...]``. Write a function ``cumulative_sum`` to compute cumulative sum of a list. Does your implementation work for a list of strings?
+.. problem:: Cumulative sum of a list ``[a, b, c, ...]`` is defined as ``[a,
+   a+b, a+b+c, ...]``. Write a function ``cumulative_sum`` to compute
+   cumulative sum of a list. Does your implementation work for a list of strings?
 
 .. code-block:: python
 
@@ -276,7 +298,8 @@ See ``pydoc list`` for more information on lists.
     >>> cumulative_sum([4, 3, 2, 1])
     [4, 7, 9, 10]
 
-.. problem:: Write a function ``cumulative_product`` to compute cumulative product of a list of numbers.
+.. problem:: Write a function ``cumulative_product`` to compute cumulative
+   product of a list of numbers.
 
 .. code-block:: python
 
@@ -285,13 +308,6 @@ See ``pydoc list`` for more information on lists.
     >>> cumulative_product([4, 3, 2, 1])
     [4, 12, 24, 24]
 
-.. problem:: Write a function ``lensort`` to sort a list of strings based on length.
-
-.. code-block:: python
-
-    >>> lensort(['python', 'perl', 'java', 'c', 'haskell', 'ruby'])
-    ['c', 'perl', 'java', 'ruby', 'python', 'haskell']
-	
 .. problem:: Write a function `unique` to find all the unique elements of a list.
 
 .. code-block:: python
@@ -299,7 +315,9 @@ See ``pydoc list`` for more information on lists.
 	>>> unique([1, 2, 1, 3, 2, 5])
 	[1, 2, 3, 5]
 
-.. problem:: Improve the above `unique` function to take an optional `key`  function as argument and use the return value of the key function to check for uniqueness.
+.. problem:: Improve the above `unique` function to take an optional `key`
+   function as argument and use the return value of the key function to check
+   for uniqueness.
 
 .. code-block:: python
 
@@ -313,7 +331,8 @@ See ``pydoc list`` for more information on lists.
 	>>> dups([1, 2, 1, 3, 2, 5])
 	[1, 2]
 
-.. problem:: Write a function `group(list, size)` that take a list and splits into smaller lists of given size.
+.. problem:: Write a function `group(list, size)` that take a list and splits
+   into smaller lists of given size.
 
 .. code-block:: python
 
@@ -397,16 +416,14 @@ Indexing and slicing on strings behave similar to that of lists.
     >>> a[::-1]
     'dlrowolleh'
 
-Python supports formatting values into strings. Although this can include very complicated expressions, the most basic usage is to insert values into a string with the %s placeholder.
+The ``in`` operator can be used to check if a string is present in another string.
 
-.. code-block:: python
-
-    >>> a = 'hello'
-    >>> b = 'python'
-    >>> "%s %s" % (a, b)
-    'hello python'
-    >>> 'Chapter %d: %s' % (2, 'Data Structures')
-    'Chapter 2: Data Structures'
+    >>> 'hell' in 'hello'
+    True
+    >>> 'full' in 'hello'
+    False
+    >>> 'el' in 'hello'
+    True
 
 There are many useful methods on strings.
 
@@ -435,6 +452,17 @@ The ``strip`` method returns a copy of the given string with leading and trailin
     'hello world'
     >>> 'abcdefgh'.strip('abdh')
     'cdefg'
+
+Python supports formatting values into strings. Although this can include very complicated expressions, the most basic usage is to insert values into a string with the %s placeholder.
+
+.. code-block:: python
+
+    >>> a = 'hello'
+    >>> b = 'python'
+    >>> "%s %s" % (a, b)
+    'hello python'
+    >>> 'Chapter %d: %s' % (2, 'Data Structures')
+    'Chapter 2: Data Structures'
     
 .. problem:: Write a function ``extsort`` to sort a list of files based on extension. 
 
@@ -594,7 +622,6 @@ Number of lines in a file can be found from ``readlines`` method.
     The shells that she sells are seashells I'm sure.
            She sells seashells on the seashore;      
     
-
 List Comprehensions
 -------------------
 

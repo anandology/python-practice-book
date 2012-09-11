@@ -4,7 +4,9 @@ Getting Started
 Running Python Interpreter
 --------------------------
 
-Python comes with an interactive interpreter. When you type ``python`` in your shell or command prompt, the python interpreter becomes active with a ``>>>`` prompt and waits for your commands.
+Python comes with an interactive interpreter. When you type ``python`` in your
+shell or command prompt, the python interpreter becomes active with a ``>>>``
+prompt and waits for your commands.
 
 .. code-block:: python
 
@@ -14,7 +16,8 @@ Python comes with an interactive interpreter. When you type ``python`` in your s
     Type "help", "copyright", "credits" or "license" for more information.
     >>> 
 
-Now you can type any valid python expression at the prompt. python reads the typed expression, evaluates it and prints the result.
+Now you can type any valid python expression at the prompt. python reads the
+typed expression, evaluates it and prints the result.
 
 .. code-block:: python
 
@@ -34,7 +37,8 @@ Open your text editor, type the following text and save it as ``hello.py``.
 
     print "hello, world!"
 
-And run this program by calling ``python hello.py``. Make sure you change to the directory where you saved the file before doing it.
+And run this program by calling ``python hello.py``. Make sure you change to
+the directory where you saved the file before doing it.
 
 .. code-block:: python
 
@@ -42,10 +46,18 @@ And run this program by calling ``python hello.py``. Make sure you change to the
     hello, world!
     anand@bodhi ~$
 
+Text after ``#`` character in any line is considered as comment.
 
-.. problem :: Create a python script to print  ``hello, world!`` four times.
+.. code-block:: python
 
-.. problem :: Create a python script with the following text and see the output.
+    # This is helloworld program
+    # run this as:
+    #    python hello.py
+    print "hello, world!"
+
+.. problem:: Create a python script to print  ``hello, world!`` four times.
+
+.. problem:: Create a python script with the following text and see the output.
 
 .. code-block:: python
 
@@ -56,7 +68,8 @@ If it doesn't print anything, what changes can you make to the program to print 
 Assignments
 -----------
 
-It is possible to associate a name with a value. This is called assignment. The associated name is usually called a *variable*.
+One of the building blocks of programming is associating a name to a value.
+This is called assignment. The associated name is usually called a *variable*.
 
 .. code-block:: python
 
@@ -64,7 +77,7 @@ It is possible to associate a name with a value. This is called assignment. The 
     >>> x * x
     16
 
-In this example ``x`` is a variable and it's value is `4`.
+In this example ``x`` is a variable and it's value is ``4``.
 
 If you try to use a name that is not associated with any value, python gives an error message.
 
@@ -78,7 +91,8 @@ If you try to use a name that is not associated with any value, python gives an 
     >>> foo
     4
 
-If you reassign a different value to an existing variable, the new value overwrites the old value.
+If you re-assign a different value to an existing variable, the new value
+overwrites the old value.
 
 .. code-block:: python
 
@@ -186,10 +200,12 @@ Let's try them on integers.
     >>> 7 % 2
     1
 
-If you notice, the result ``7 / 2`` is ``3`` not ``3.5``. It is because the ``/`` operator when working on integers, produces only an integer.
+If you notice, the result ``7 / 2`` is ``3`` not ``3.5``. It is because the ``/`` operator when working on integers, produces only an integer. Lets see what happens when we try it with decimal numbers:
 
 .. code-block:: python
  
+    >>> 7.0 / 2.0
+    3.5
     >>> 7.0 / 2
     3.5
     >>> 7 / 2.0
@@ -204,14 +220,17 @@ The operators can be combined.
     >>> 2 * 3 + 4
     10
 
+It is important to understand how these compound expressions are evaluated. The
+operators have precedence, a kind of priority that determines which operator is
+applied first. Among the numerical operators, the precedence of operators is as
+follows, from low precedence to high.
 
-It is important to understand how these compound expressions are evaluated. The operators have precedence, a kind of priority that determines which operator is applied first. Among the numerical operators, the precedence of operators is as follows, from low precedence to high.
+* ``+``, ``-``
+* ``*``, ``/``, ``%``
+* ``**``
 
-* `+`, `-`
-* `*`, `/`, `%`
-* `**`
-
-When we compute ``2 + 3 * 4``, ``3 * 4`` is computed first as the precedence of ``*`` is higher than ``+`` and then the result is added to 2.
+When we compute ``2 + 3 * 4``, ``3 * 4`` is computed first as the precedence of
+``*`` is higher than ``+`` and then the result is added to 2.
 
 .. code-block:: python
  
@@ -225,7 +244,7 @@ We can use parenthesis to specify the explicit groups.
     >>> (2 + 3) * 4
     20
 
-All the operators except `**` are left-associcate, that means that the application of the operators starts from left to right.
+All the operators except ``**`` are left-associcate, that means that the application of the operators starts from left to right.
 
 .. code-block:: python
 
@@ -239,34 +258,302 @@ All the operators except `**` are left-associcate, that means that the applicati
                   ↓
                  20
 
-.. problem:: What will be output of the following program?
+Strings
+-------
+
+Strings what you use to represent text.
+
+Strings are a sequence of characters, enclosed in single quotes or double quotes.
 
 .. code-block:: python
 
-    n = 5
-    a = n * n + n
-    b = n + n * n
-    c = n * (n + n)
-    d = (n * n) + n
-    e = n + (n * n)
-    f = (n + n) * n
-    print a, b, c, d, e, f
+    >>> x = "hello"
+    >>> y = 'world'
+    >>> print x, y
+    hello world
+
+There is difference between single quotes and double quotes, they can used interchangebly.
+
+Multi-line strings can be written using three single quotes or three double quotes.
+
+.. code-block:: python
+
+    x = """This is a multi-line string
+    written in
+    three lines."""
+    print x
     
-.. problem:: What will be output of the following program?
+    y = '''multi-line strings can be written
+    using three single quote characters as well.
+    The string can contain 'single quotes' or "double quotes"
+    in side it.'''
+    print y
+
+Functions
+---------
+
+Just like a value can be associated with a name, a piece of logic can also be
+associated with a name by defining a function. 
 
 .. code-block:: python
 
-    print 5/2, 5.0/2, 5/2.0, 5/2.
-    print 24/4/2, 24/4*2
+    >>> def square(x):
+    ...    return x * x
+    ...
+    >>> square(5)
+    25
+    
+The body of the function is indented. Indentation is the Python's way of
+grouping statements.
 
-.. problem:: What will be output of the following program?
+The ``...`` is the secondary prompt, which the Python interpreter uses to
+denote that it is expecting some more input.
+
+The functions can be used in any expressions.
 
 .. code-block:: python
-        
-    print 8 / 3, 8 % 3
-    print -8 / 3, -8 % 3
-    print 8 / -3, 8 % -3
-    print -8 / -3, -8 % -3
+
+    >>> square(2) + square(3)
+    13
+    >>> square(square(3))
+    81
+
+Existing functions can be used in creating new functions.
+
+.. code-block:: python
+
+    >>> def sum_of_squares(x, y):
+    ...    return square(x) + square(y)
+    ...
+    >>> sum_of_squares(2, 3)
+    13
+
+Functions are just like other values, they can assigned, passed as arguments to
+other functions etc. 
+
+.. code-block:: python
+
+    >>> f = square
+    >>> f(4)
+    16
+
+    >>> def fxy(f, x, y):
+    ...     return f(x) + f(y)
+    ...
+    >>> fxy(square, 2, 3)
+    13
+
+It is important to understand, the scope of the variables used in functions.
+
+Lets look at an example.
+
+.. code-block:: python
+
+    x = 0
+    y = 0
+    def incr(x):
+        y = x + 1
+        return y
+    incr(5)
+    print x, y 
+
+
+Variables assigned in a function, including the arguments are called the local
+variables to the function. The variables defined in the top-level are called
+global variables.
+
+Changing the values of ``x`` and ``y`` inside the function ``incr`` won't
+effect the values of global ``x`` and ``y``.
+
+But, we can use the values of the global variables.
+
+.. code-block:: python
+
+    pi = 3.14
+    def area(r):
+        return pi * r * r
+
+When Python sees use of a variable not defined locally, it tries to find a
+global variable with that name.
+
+However, you have to explicitly declare a variable as ``global`` to modify it. 
+
+.. code-block:: python
+
+    numcalls = 0
+    def square(x):
+        global numcalls
+        numcalls = numcalls + 1
+        return x * x
+
+.. problem:: How many multiplications are performed when each of the following
+   lines of code is executed?
+
+.. code-block:: python
+
+    print square(5)
+    print square(2*5)
+    
+.. problem:: What will be the output of the following program?
+
+.. code-block:: python
+
+	x = 1
+	def f():
+            return x
+	print x
+	print f()
+
+.. problem:: What will be the output of the following program?
+
+.. code-block:: python
+
+	x = 1
+	def f():
+            x = 2
+            return x
+	print x
+	print f()
+	print x
+
+.. problem:: What will be the output of the following program?
+
+.. code-block:: python
+
+	x = 1
+	def f():
+		y = x
+		x = 2
+		return x + y
+	print x
+	print f()
+	print x
+
+.. problem:: What will be the output of the following program?
+
+.. code-block:: python
+
+    x = 2
+    def f(a):
+        x = a * a
+        return x
+    y = f(3)
+    print x, y
+	
+Functions can be called with keyword arguments.
+
+.. code-block:: python
+
+    >>> def difference(x, y):
+    ...    return x - y
+    ...
+    >>> difference(5, 2)
+    3
+    >>> difference(x=5, y=2)
+    3
+    >>> difference(5, y=2)
+    3
+    >>> difference(y=2, x=5)
+    3
+	
+And some arguments can have default values.
+
+.. code-block:: python
+
+    >>> def increment(x, amount=1):
+    ...    return x + amount
+    ...
+    >>> def increment(10)
+    1
+    >>> increment(10, 5)
+    15
+    >>> increment(10, amount=2)
+    12
+
+
+There is another way of creating functions, using the ``lambda`` operator.    
+
+.. code-block:: python
+
+    >>> cube = lambda x: x ** 3
+    >>> fxy(cube, 2, 3)
+    35
+    >>> fxy(lambda x: x ** 3, 2, 3)
+    35
+
+Notice that unlike function defination, lambda doesn't need a ``return``. The
+body of the ``lambda`` is a single expression.
+
+The ``lambda`` operator becomes handy when writing small functions to be 
+passed as arguments etc. We'll see more of it as we get into solving more 
+serious problems.
+
+Built-in Functions
+^^^^^^^^^^^^^^^^^^
+
+Python provides some useful built-in functions. 
+
+.. code-block:: python
+
+    >>> min(2, 3)
+    2
+    >>> max(3, 4)
+    4
+
+The built-in function ``len`` computes length of a string.
+
+.. code-block:: python
+
+    >>> len("helloworld")
+    10
+
+The built-in function ``int`` converts string to ingeter and built-in function
+``str`` converts integers and other type of objects to strings.
+
+    >>> int("50")
+    50
+    >>> str("123")
+    123
+
+.. problem:: Write a function ``count_digits`` to find number of digits in the given number.
+
+    >>> count_digits(5)
+    1
+    >>> count_digits(12345)
+    5
+
+Methods
+^^^^^^^
+
+Methods are special kind of functions that work on an object.
+
+For example, ``upper`` is a method available on string objects.
+
+.. code-block:: python
+
+    >>> x = "hello"
+    >>> print x.upper()
+    HELLO
+    
+As already mentioned, methods are also functions. They can be assigned to other
+variables can be called separately.
+
+.. code-block:: python
+
+    >>> f = x.upper
+    >>> print f()
+    HELLO
+
+.. problem:: Write a function `istrcmp` to compare two strings, ignoring the case.
+
+.. code-block:: python
+
+    >>> istrcmp('python', 'Python')
+    True
+    >>> istrcmp('LaTeX', 'Latex')
+    True
+    >>> istrcmp('a', 'b')
+    False
 
 Conditional Expressions
 -----------------------
@@ -310,9 +597,9 @@ The conditional operators work even on strings - the ordering being the lexical 
     
 There are few logical operators to combine boolean values.
 
-* `a and b` is True only if both `a` and `b` are True.
-* `a or b` is True if either `a` or `b` is True.
-* `not a` is True only if `a` is False.
+* ``a and b`` is ``True`` only if both ``a`` and ``b`` are True.
+* ``a or b`` is True if either ``a`` or ``b`` is True.
+* ``not a`` is True only if ``a`` is False.
 
 .. code-block:: python
 
@@ -375,8 +662,6 @@ The code associated with ``if`` can be written as a separate indented block of c
     even
     >>>
 
-Notice the indentation. Python uses indentation to identify code blocks.
-The ``...`` is the secondary prompt, which python interpreter uses to denote that it is expecting some more input.
 
 The ``if`` statement can have optional ``else`` clause, which is executed when the boolean expression is ``False``.
 
@@ -391,7 +676,9 @@ The ``if`` statement can have optional ``else`` clause, which is executed when t
     odd
     >>>
 
-The ``if`` statement can have optional ``elif`` clauses when there are more conditions to be checked. The ``elif`` keyword is short for ``else if``, and is useful to avoid excessive indentation.
+The ``if`` statement can have optional ``elif`` clauses when there are more
+conditions to be checked. The ``elif`` keyword is short for ``else if``, and is
+useful to avoid excessive indentation.
 
 .. code-block:: python
         
@@ -406,7 +693,8 @@ The ``if`` statement can have optional ``elif`` clauses when there are more cond
     two digit number
     >>>
     
-.. problem :: What happens when the following code is executed? Will it give any error? Explain the reasons.
+.. problem:: What happens when the following code is executed? Will it give any
+   error? Explain the reasons.
 
 .. code-block:: python
 
@@ -416,7 +704,7 @@ The ``if`` statement can have optional ``elif`` clauses when there are more cond
     else:
         print y
 
-.. problem :: What happens the following code is executed? Will it give any error? Explain the reasons.
+.. problem:: What happens the following code is executed? Will it give any error? Explain the reasons.
 
 .. code-block:: python
 
@@ -426,252 +714,104 @@ The ``if`` statement can have optional ``elif`` clauses when there are more cond
     else:
         x +
 
-Functions
----------
+Lists
+-----
 
-Just like a value can be associated with a name, a piece of logic can also be associated with a name by defining a function. 
+Lists are one of the great datastructures in Python. We are going to learn a
+little bit about lists now. Basic knowledge of lists is requrired to be able to
+solve some problems that we want to solve in this chapter.
 
-.. code-block:: python
-
-    >>> def square(x):
-    ...    return x * x
-    ...
-    >>> square(5)
-    25
-    
-The body of the function is indented. Indentation is the Python's way of grouping statements. 
-
-The functions can be used in any expressions.
+Here is a list of numbers.
 
 .. code-block:: python
 
-    >>> square(2) + square(3)
-    13
-    >>> square(square(3))
-    81
+    >>> x = [1, 2, 3]
 
-We can even create more functions using the existing ones.
+And here is a list of strings.
 
 .. code-block:: python
 
-    >>> def sum_of_squares(x, y):
-    ...    return square(x) + square(y)
-    ...
-    >>> sum_of_squares(2, 3)
-    13
+    >>> x = ["hello", "world"]
 
-Functions are just like other values, they can assigned, passed as arguments to other functions etc. 
+List can be heterogeneous. Here is a list containings integers, strings and another list.
 
 .. code-block:: python
 
-    >>> f = square
-    >>> f(4)
-    16
+    >>> x = [1, 2, "hello, "world", ["another", "list"]]
 
-    >>> def fxy(f, x, y):
-    ...     return f(x) + f(y)
-    ...
-    >>> fxy(square, 2, 3)
-    13
-
-There is another way of creating functions, using the `lambda` operator.    
+The built-in function ``len`` works for lists as well.
 
 .. code-block:: python
 
-    >>> cube = lambda x: x ** 3
-    >>> fxy(cube, 2, 3)
-    35
-    >>> fxy(lambda x: x ** 3, 2, 3)
-    35
+    >>> x = [1, 2, 3]
+    >>> len(x)
+    3
 
-The ``lambda`` operator becomes handy when writing small functions to be 
-passed as arguments etc. We'll see more of it as we get into solving more 
-serious problems.
-
-.. problem:: How many multiplications are performed when each of the following lines of code is executed?
+The ``[]`` operator is used to access individual elements of a list.
 
 .. code-block:: python
 
-    print square(5)
-    print square(2*5)
-    
-.. problem:: What will be the output of the following program?
-
-.. code-block:: python
-
-	x = 1
-	def f():
-		return x
-	print x
-	print f()
-
-.. problem:: What will be the output of the following program?
-
-.. code-block:: python
-
-	x = 1
-	def f():
-		x = 2
-		return x
-	print x
-	print f()
-	print x
-
-.. problem:: What will be the output of the following program?
-
-.. code-block:: python
-
-	x = 1
-	def f():
-		y = x
-		x = 2
-		return x + y
-	print x
-	print f()
-	print x
-
-.. problem:: What will be the output of the following program?
-
-.. code-block:: python
-
-    x = 2
-    def f(a):
-        x = a * a
-        return x
-    y = f(3)
-    print x, y
-	
-Functions can be called with keyword arguments.
-
-	>>> def difference(x, y):
-	...    return x - y
-	...
-	>>> difference(5, 2)
-	3
-	>>> difference(x=5, y=2)
-	3
-	>>> difference(5, y=2)
-	3
-	>>> difference(y=2, x=5)
-	3
-	
-And some arguments can have default values.
-
-	>>> def increment(x, amount=1):
-	...		return x + amount
-	...
-	>>> def increment(10)
-	1
-	>>> increment(10, 5)
-	15
-	>>> increment(10, amount=2)
-	12
-
-Built-in Functions
-^^^^^^^^^^^^^^^^^^
-
-Python provides some useful functions as built-ins. 
-
-.. code-block:: python
-
-    >>> min(2, 3)
-    2
-    >>> max(3, 4)
+    >>> x = [1, 2, 3]
+    >>> x[1]
+    2 
+    >>> x[1] = 4
+    >>> x[1]
     4
 
-Methods
-^^^^^^^
+The first element is indexed with ``0``, second with ``1`` and so on.
 
-Methods are special kind of functions that work on an object.
+We'll learn more about lists in the next chapter.
 
-For example, `upper` is a method available on string objects.
-
-.. code-block:: python
-
-    >>> x = "hello"
-    >>> print x.upper()
-    HELLO
-    
-As already told, methods are also functions. They can be assigned to other variables can be called separately.
-
-.. code-block:: python
-
-    >>> f = x.upper
-    >>> print f()
-    HELLO
-    
-Strings
+Modules
 -------
 
-We've already seen strings in couple of examples before.
+Modules are libraries in Python. Python ships with many standard library modules. 
 
-Strings are a sequence of characters, enclosed in single quotes or double quotes.
+A module can be imported using the ``import`` statement.
 
-.. code-block:: python
-
-    >>> x = "hello"
-    >>> y = 'world'
-    >>> print x, y
-    hello world
-    
-Multi-line strings can be written using three single quotes or three double quotes.
+Lets look at ``time`` module for example:
 
 .. code-block:: python
 
-    x = """This is a multi-line string
-    written in
-    three lines."""
-    print x
-    
-    y = '''multi-line strings can be written
-    using three single quote characters as well.
-    The string can contain 'single quotes' or "double quotes"
-    in side it.'''
-    print y
+    >>> import time
+    >>> time.asctime()
+    'Tue Sep 11 21:42:06 2012'
 
-String objects have some useful methods. Some of them are:
+The ``asctime`` function from the ``time`` module returns the current time of
+the system as a string.
 
-* ``center`` - center aligns a string
-* ``upper`` - converts the string into upper case
-* ``lower`` - converts the string into lower case
-* ``title`` - converts the string into title case
-* ``string`` - strips the leading and trailing white space
-* ``replace`` - replace occurance of a text with given replacement
-* ``count`` - counts number of occurances of a char or string inside the given string
-    
-Try try some of them.
+The ``sys`` module provides access to the list of arguments passed to the
+program, among the other things.
+
+The ``sys.argv`` variable contains the list of arguments passed to the program.
+As a convention, the first element of that list is the name of the program.
+
+Lets look at the following program ``echo.py`` that prints the first argument
+passed to it.
 
 .. code-block:: python
 
-    >>> "hello".center(15)
-    '     hello     '
-    >>> "hello".upper()
-    'HELLO'
-    >>> "hello".replace('h', 'y')
-    'yello'
-    >>> "hello".replace('l', 'xx')
-    'hexxxxo'
-    >>> "hello".count('l')
-    2
-    >>> " hello   ".strip()
-    'hello'
+    import sys
+    print sys.argv[1]
 
-The built-in function `str` coverts any object into its string representation.
+Lets try running it.
 
 .. code-block:: python
 
-    >>> str(12)
-    '12'
-    >>> str(1.2)
-    '1.2'
+    $ python echo.py hello
+    hello
+    $ python echo.py hello world
+    hello
 
-.. problem:: Write a function to count the number of zeros in a number. Use it to count number of zeros in `2 ** 100` and `5 ** 100`.
+There are many more interesting modules in the standard library. We'll learn
+more about them in the coming chapters.
 
-.. problem:: Write a function `strcmp` to compare two strings, ignoring the case.
+.. problem:: Write a program ``add.py`` that takes 2 numbers as command line
+   arguments and prints its sum.
 
 .. code-block:: python
 
-    >>> strcmp('python', 'Python')
-    True
-    >>> strcmp('LaTeX', 'Latex')
-    True
+    $ python add.py 3 5
+    8
+    $ python add.py 2 9
+    11
