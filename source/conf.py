@@ -99,6 +99,7 @@ pygments_style = None
 # Sphinx are currently 'default' and 'sphinxdoc'.
 html_theme = 'default'
 html_theme = 'sphinxdoc'
+html_theme = 'classy'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -107,6 +108,7 @@ html_theme = 'sphinxdoc'
 
 # Add any paths that contain custom themes here, relative to this directory.
 #html_theme_path = []
+html_theme_path = ['_themes']
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
@@ -187,7 +189,7 @@ latex_paper_size = 'a4'
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
   ('index', 'python-practice-book.tex', u'Python Practice Book',
-   u'Anand Chitipothu', 'manual2'),
+   u'Anand Chitipothu', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
