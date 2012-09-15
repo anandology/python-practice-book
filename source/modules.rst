@@ -155,9 +155,20 @@ Python comes with many standard library modules. Lets look at some of the most c
 os module
 ^^^^^^^^^
 
-The `os` and `os.path` modules provides functionality to work with files, diretories etc.
+The `os` and `os.path` modules provides functionality to work with files, directories etc.
 
-.. problem:: Write a program to print directory tree. The program should take path of a directory as argument and print all the files in it recursively as a tree.
+.. problem:: Write a program to list all files in the given directory. 
+
+.. problem:: Write a program to list all the files in the given directory along
+   with their length and last modification time. The output should contain one
+   line for each file containing filename, length and modification date separated
+   by tabs.
+
+   Hint: see help for ``os.stat``.
+
+.. problem:: Write a program to print directory tree. The program should take
+   path of a directory as argument and print all the files in it recursively as
+   a tree.
 
 .. code-block:: text
 
@@ -170,9 +181,10 @@ The `os` and `os.path` modules provides functionality to work with files, direto
     |   |-- b.py
     |   |-- docs
     |   |   |-- a.txt
-    |   |   `-- b.txt
-    |   `-- x.py
-    `-- z.txt
+    |   |   \-- b.txt
+    |   \-- x.py
+    \-- z.txt
+
 
 urllib module
 ^^^^^^^^^^^^^
@@ -232,12 +244,12 @@ re module
     'hello-world'
     >>> make_slug(" --hello-  world--")
     'hello-world'
+
+.. problem:: Write a program `links.py` that takes URL of a webpage as argument
+   and prints all the URLs linked from that webpage.
+
+.. problem:: Write a regular expression to validate a phone number.
      
-time module
-^^^^^^^^^^^
-
-The time module provides 
-
 zipfile module
 ^^^^^^^^^^^^^^
 
@@ -393,7 +405,18 @@ It is even possible to create multi-sheet excel files.
     with open('book.xlsx', 'wb') as f:
         f.write(book.xlsx)
 
-.. problem:: Create a new virtualenv and install BeautifulSoup. BeautifulSoup is very good library for parsing HTML. Try using it to extract all HTML links from a webpage.
+.. problem:: Write a program ``csv2xls.py`` that reads a csv file and exports
+   it as Excel file. The prigram should take two arguments. The name of the csv
+   file to read as first argument and the name of the Excel file to write as the
+   second argument. 
+
+.. code-block: text
+
+    $ python csv2xls.py a.csv a.xls
+
+.. problem:: Create a new virtualenv and install BeautifulSoup. BeautifulSoup
+   is very good library for parsing HTML. Try using it to extract all HTML
+   links from a webpage.
 
 Read the `BeautifulSoup documentation <http://www.crummy.com/software/BeautifulSoup/bs3/documentation.html>`_ to get started.
 

@@ -512,8 +512,8 @@ The built-in function ``int`` converts string to ingeter and built-in function
 
     >>> int("50")
     50
-    >>> str("123")
-    123
+    >>> str(123)
+    "123"
 
 .. problem:: Write a function ``count_digits`` to find number of digits in the given number.
 
