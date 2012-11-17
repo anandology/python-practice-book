@@ -161,52 +161,6 @@ Values can be appended to a list by calling ``append`` method on list. A method 
     >>> a
     [1, 2, 3]
 
-The ``sort`` method sorts a list in place. 
-
-.. code-block:: python
-
-    >>> a = [2, 10, 4, 3, 7]
-    >>> a.sort()
-    >>> a
-    [2, 3, 4, 7 10]
-
-The built-in function ``sorted`` returns a new sorted list without modifying
-the source list.
-
-.. code-block:: python
-
-    >>> a = [4, 3, 5, 9, 2]
-    >>> sorted(a)
-    [2, 3, 4, 5, 9]
-    >>> a
-    [4, 3, 5, 9, 2]
-
-The behavior of ``sort`` method and ``sorted`` function is exactly same except that sorted returns a new list instead of modifying the given list.
-
-The ``sort`` method works even when the list has different types of objects and even lists.
-
-.. code-block:: python
-
-    >>> a = ["hello", 1, "world", 45, 2]
-    >>> a.sort()
-    >>> a
-    [1, 2, 45, 'hello', 'world']
-    >>> a = [[2, 3], [1, 6]]
-    >>> a.sort()
-    >>> a
-    [[1, 6], [2, 3]]
-    
-We can optionally specify a function as sort key. 
-
-.. code-block:: python
-
-    >>> a = [[2, 3], [4, 6], [6, 1]]
-    >>> a.sort(key=lambda x: x[1])
-    >>> a
-    [[6, 1], [2, 3],  [4 6]]
-
-This sorts all the elements of the list based on the value of second element of each entry.
-
 .. problem:: What will be the output of the following program?
 
 .. code-block:: python
@@ -218,14 +172,6 @@ This sorts all the elements of the list based on the value of second element of 
 	print x
 	x[2] = 2
 	print x
-
-.. problem:: Write a function ``lensort`` to sort a list of strings based on length.
-
-.. code-block:: python
-
-    >>> lensort(['python', 'perl', 'java', 'c', 'haskell', 'ruby'])
-    ['c', 'perl', 'java', 'ruby', 'python', 'haskell']
-	
 
 The for Statement
 ^^^^^^^^^^^^^^^^^
@@ -239,6 +185,19 @@ Python provides ``for`` statement to iterate over a list. A ``for`` statement ex
    
     for i  in range(10):
        print i, i*i, i*i*i
+
+The built-in function ``zip`` takes two lists and returns list of pairs. ::
+
+    >>> zip(["a", "b", "c"], [1, 2, 3])
+    [('a', 1), ('b', 2), ('c', 3)]
+
+It is handy when we want to iterate over two lists together. ::
+
+    names = ["a", "b", "c"]
+    values = [1, 2, 3]
+    for name, value in zip(names, values):
+        print name, value
+
 
 .. problem:: Python has a built-in function ``sum`` to find sum of all elements of a list. Provide an implementation for ``sum``. 
 
@@ -314,15 +273,6 @@ Python provides ``for`` statement to iterate over a list. A ``for`` statement ex
 
 	>>> unique([1, 2, 1, 3, 2, 5])
 	[1, 2, 3, 5]
-
-.. problem:: Improve the above `unique` function to take an optional `key`
-   function as argument and use the return value of the key function to check
-   for uniqueness.
-
-.. code-block:: python
-
-	>>> unique(["python", "java", "Python", "Java"], key=lambda s: s.lower())
-	["python", "java"]
     
 .. problem:: Write a function `dups` to find all duplicates in the list.
 
@@ -340,6 +290,72 @@ Python provides ``for`` statement to iterate over a list. A ``for`` statement ex
     [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
     >>> group([1, 2, 3, 4, 5, 6, 7, 8, 9], 4)
     [[1, 2, 3, 4], [5, 6, 7, 8], [9]]    
+
+Sorting Lists
+^^^^^^^^^^^^^
+
+The ``sort`` method sorts a list in place. 
+
+.. code-block:: python
+
+    >>> a = [2, 10, 4, 3, 7]
+    >>> a.sort()
+    >>> a
+    [2, 3, 4, 7 10]
+
+The built-in function ``sorted`` returns a new sorted list without modifying
+the source list.
+
+.. code-block:: python
+
+    >>> a = [4, 3, 5, 9, 2]
+    >>> sorted(a)
+    [2, 3, 4, 5, 9]
+    >>> a
+    [4, 3, 5, 9, 2]
+
+The behavior of ``sort`` method and ``sorted`` function is exactly same except that sorted returns a new list instead of modifying the given list.
+
+The ``sort`` method works even when the list has different types of objects and even lists.
+
+.. code-block:: python
+
+    >>> a = ["hello", 1, "world", 45, 2]
+    >>> a.sort()
+    >>> a
+    [1, 2, 45, 'hello', 'world']
+    >>> a = [[2, 3], [1, 6]]
+    >>> a.sort()
+    >>> a
+    [[1, 6], [2, 3]]
+    
+We can optionally specify a function as sort key. 
+
+.. code-block:: python
+
+    >>> a = [[2, 3], [4, 6], [6, 1]]
+    >>> a.sort(key=lambda x: x[1])
+    >>> a
+    [[6, 1], [2, 3],  [4 6]]
+
+This sorts all the elements of the list based on the value of second element of each entry.
+
+.. problem:: Write a function ``lensort`` to sort a list of strings based on length.
+
+.. code-block:: python
+
+    >>> lensort(['python', 'perl', 'java', 'c', 'haskell', 'ruby'])
+    ['c', 'perl', 'java', 'ruby', 'python', 'haskell']
+
+
+.. problem:: Improve the `unique` function written in previous problems to take
+   an optional `key` function as argument and use the return value of the key
+   function to check for uniqueness.
+
+.. code-block:: python
+
+	>>> unique(["python", "java", "Python", "Java"], key=lambda s: s.lower())
+	["python", "java"]
 
 Tuples
 ------

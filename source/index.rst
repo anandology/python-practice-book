@@ -18,7 +18,6 @@ Table of Contents
 
    getting-started
    working-with-data
-   functional_programming
    modules
    object_oriented_programming
 

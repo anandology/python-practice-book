@@ -464,7 +464,7 @@ And some arguments can have default values.
     ...    return x + amount
     ...
     >>> def increment(10)
-    1
+    11
     >>> increment(10, 5)
     15
     >>> increment(10, amount=2)
