@@ -54,24 +54,6 @@ On Windows, the `pydoc` command is not available. The work-around is to use, the
         time - This module provides various functions to manipulate time values.
     ...
 
-Or write a simple batch file `pydoc.bat` in the Python installation directory with the following content.
-
-.. code-block:: text
-
-    @echo off
-    python -c "help('%1')"
-    
-Now, this batch file can be used instead of pydoc.
-
-.. code-block:: text
-
-    c:\Python27> pydoc.bat time
-    Help on module time:
-
-    NAME
-        time - This module provides various functions to manipulate time values.
-    ...    
-
 Writing our own modules is very simple.
 
 For example, create a file called `num.py` with the following content.
@@ -157,7 +139,20 @@ os module
 
 The `os` and `os.path` modules provides functionality to work with files, directories etc.
 
+
 .. problem:: Write a program to list all files in the given directory. 
+
+
+.. problem:: Write a program `extcount.py` to count number of files for each
+   extension in the given directory. The program should take a directory name
+    as argument and print count and extension for each available file extension.
+
+.. code-block:: text
+
+    $ python extcount.py src/
+    14 py
+    4 txt
+    1 csv
 
 .. problem:: Write a program to list all the files in the given directory along
    with their length and last modification time. The output should contain one
@@ -249,6 +244,14 @@ re module
    and prints all the URLs linked from that webpage.
 
 .. problem:: Write a regular expression to validate a phone number.
+
+json module
+^^^^^^^^^^^
+
+.. problem:: Write a program myip.py to print the external IP address of the
+   machine. Use the response from ``http://httpbin.org/get`` and read the IP
+   address from there. The program should print only the IP address and nothing
+   else.
      
 zipfile module
 ^^^^^^^^^^^^^^

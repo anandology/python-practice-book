@@ -194,7 +194,7 @@ Just like ``__add__`` is called for ``+`` operator, ``__sub__``, ``__mul__`` and
 
 Suppose we want to do arithmetic with rational numbers. We want to be able to add, subtract, multiply, and divide them and to test whether two rational numbers are equal.
 
-We can add, subtract, multiply, divide, and test equality by using the following relations: 
+We can add, subtract, multiply, divide, and test equality by using the following relations::
 
     n1/d1 + n2/d2 = (n1*d2 + n2*d1)/(d1*d2)
     n1/d1 - n2/d2 = (n1*d2 - n2*d1)/(d1*d2)
