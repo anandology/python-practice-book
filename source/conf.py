@@ -18,6 +18,8 @@ import sys, os
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #sys.path.append(os.path.abspath('.'))
 
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '_themes')))
+
 # -- General configuration -----------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
@@ -97,14 +99,16 @@ pygments_style = None
 
 # The theme to use for HTML and HTML Help pages.  Major themes that come with
 # Sphinx are currently 'default' and 'sphinxdoc'.
-html_theme = 'default'
-html_theme = 'sphinxdoc'
-html_theme = 'classy'
+#html_theme = 'default'
+html_theme = 'flask'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
 #html_theme_options = {}
+html_theme_options = {
+	'index_logo': False
+}
 
 # Add any paths that contain custom themes here, relative to this directory.
 #html_theme_path = []
@@ -143,6 +147,14 @@ html_static_path = ['_static']
 #html_sidebars = {
 #    "**": []
 #}
+# Custom sidebar templates, maps document names to template names.
+html_sidebars = {
+    'index':    ['sidebarintro.html', 'sourcelink.html', 'searchbox.html'],
+    '**':       ['sidebarintro.html', 'localtoc.html', 'relations.html',
+                 'sourcelink.html', 'searchbox.html']
+}
+
+
 
 # Additional templates that should be rendered to pages, maps page names to
 # template names.
@@ -160,7 +172,7 @@ html_use_index = False
 
 # If true, links to the reST sources are added to the pages.
 #html_show_sourcelink = True
-html_show_sourcelink = False
+html_show_sourcelink = True
 
 # If true, an OpenSearch description file will be output, and all pages will
 # contain a <link> tag referring to it.  The value of this option must be the

@@ -3,14 +3,13 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+Python Practice Book
+====================
+
 Welcome to **Python Practice Book**.
 
-This book is work in progress and is available for free at http://anandology.com/python-practice-book/.
-
-This book is licensed under a `Creative Commons Attribution-Noncommercial-ShareAlike 3.0 Unported License <http://creativecommons.org/licenses/by-nc-sa/3.0/>`_.
-
 Table of Contents
-=================
+-----------------
 
 .. toctree::
    :numbered:
@@ -21,3 +20,7 @@ Table of Contents
    modules
    object_oriented_programming
 
+License
+-------
+
+This book is licensed under `Creative Commons Attribution-Noncommercial-ShareAlike 3.0 Unported License <http://creativecommons.org/licenses/by-nc-sa/3.0/>`_.
