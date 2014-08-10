@@ -8,6 +8,15 @@ Python Practice Book
 
 Welcome to **Python Practice Book**.
 
+About this Book
+---------------
+
+This book is prepared from the training notes of 
+`Anand Chitipothu <http://anandology.com/>`_.
+
+Anand conducts Python training classes on a semi-regular basis in Bangalore, India. 
+Checkout out the `upcoming trainings <http://anandology.com/trainings/>`_ if you are interested.
+
 Table of Contents
 -----------------
 
