@@ -141,9 +141,7 @@ Example: JSON Encode
 ^^^^^^^^^^^^^^^^^^^^
 
 Lets look at more commonly used example of serializing a python datastructure
-into [JSON (JavaScript Object Notation)][json].
-
-[json]: https://en.wikipedia.org/wiki/JSON
+into `JSON (JavaScript Object Notation) <https://en.wikipedia.org/wiki/JSON>`_.
 
 Here is an example of JSON record. ::
 
