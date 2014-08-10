@@ -19,6 +19,8 @@ Table of Contents
    working-with-data
    modules
    object_oriented_programming
+   iterators
+   functional-programming
 
 License
 -------
