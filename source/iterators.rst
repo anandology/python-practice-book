@@ -296,7 +296,7 @@ like list comprehensions, but returns a generator back instead of a list. ::
 We can use the generator expressions as arguments to various functions that
 consume iterators. ::
 
-    >>> sum(((x*x for x in range(10)))
+    >>> sum((x*x for x in range(10)))
     285
 
 When there is only one argument to the calling function, the parenthesis around
