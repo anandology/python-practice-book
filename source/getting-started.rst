@@ -737,7 +737,7 @@ List can be heterogeneous. Here is a list containings integers, strings and anot
 
 .. code-block:: python
 
-    >>> x = [1, 2, "hello, "world", ["another", "list"]]
+    >>> x = [1, 2, "hello", "world", ["another", "list"]]
 
 The built-in function ``len`` works for lists as well.
 
