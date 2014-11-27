@@ -281,7 +281,7 @@ Lets see an example::
     print take(5, squares()) # prints [1, 4, 9, 16, 25]
 
 Another interesting example involves the generation of fibonacci numbers.
-Using recursion to generate a large fibonacci number will take a very long time and is requires additional space.
+Using recursion to generate a large fibonacci number will take a very long time and requires additional space.
 However, an implementation using a generator yields quick results. Consider the following::
 
 	def fibonacci_generator():
