@@ -204,7 +204,7 @@ It is handy when we want to iterate over two lists together. ::
 .. code-block:: python
 
     >>> sum([1, 2, 3])
-    >>> 4
+    >>> 6
 
 .. problem:: What happens when the above ``sum`` function is called with a list of strings? Can you make your ``sum`` function work for a list of strings as well.
 
