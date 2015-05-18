@@ -349,7 +349,7 @@ to a function. But with generators makes it possible to do it. ::
                 yield line
     
     def grep(pattern, lines):
-        return (line for line in lines if pattern in lines)
+        return (line for line in lines if pattern in line)
 
     def printlines(lines):
         for line in lines:
