@@ -102,7 +102,7 @@ Supposed you have a nested list and want to flatten it.
 
             >>> flatten_list([ [1, 2, [3, 4] ], [5, 6], 7])
             [1, 2, 3, 4, 5, 6, 7]
-        """"
+        """
         if result is None:
             result = []
 
