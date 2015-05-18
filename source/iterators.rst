@@ -55,7 +55,7 @@ There are many functions which consume these iterables. ::
     >>> list({"x": 1, "y": 2})
     ['y', 'x']
 
-The Iteraton Protocol
+The Iteration Protocol
 ^^^^^^^^^^^^^^^^^^^^^
 
 The built-in function ``iter`` takes an iterable object and returns an iterator. ::
@@ -217,8 +217,8 @@ generates it.
     
 Can you think about how it is working internally?    
 
-When a generator function is called, it returns an generator object without
-even beginning execution of the function. When `next`` method is called for the
+When a generator function is called, it returns a generator object without
+even beginning execution of the function. When ``next`` method is called for the
 first time, the function starts executing until it reaches ``yield`` statement.
 The yielded value is returned by the ``next`` call. 
 
