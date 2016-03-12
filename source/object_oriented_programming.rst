@@ -373,7 +373,7 @@ executed only if no exception is raised in the try-block.
     else:
         print "successfully opened the file", filename
 
-There can be an optional `else` clause with a `try` statement, which is executed 
+There can be an optional `finally` clause with a `try` statement, which is executed 
 irrespective of whether or not exception has occured.
 
 .. code-block:: python
