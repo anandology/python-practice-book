@@ -563,9 +563,9 @@ Python provides various operators for comparing values. The result of a comparis
 .. code-block:: python
 
     >>> 2 < 3
-    False
-    >>> 2 > 3
     True
+    >>> 2 > 3
+    False
 
 Here is the list of available conditional operators.
 
