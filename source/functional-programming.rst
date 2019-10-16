@@ -270,14 +270,14 @@ We can write a higher order function to return a new function, which prints when
 
     def trace(f):
         def g(x):
-            print f.__name__, x
+            print(f.__name__, x)
             value = f(x)
-            print 'return', repr(value)
+            print('return', repr(value))
             return value
         return g
 
     fib = trace(fib)
-    print fib(3)
+    print(fib(3))
 
 This produces the following output.
 
@@ -308,16 +308,16 @@ To make the output more readable, let us indent the function calls.
     def trace(f):
         f.indent = 0
         def g(x):
-            print '|  ' * f.indent + '|--', f.__name__, x
+            print('|  ' * f.indent + '|--', f.__name__, x)
             f.indent += 1
             value = f(x)
-            print '|  ' * f.indent + '|--', 'return', repr(value)
+            print('|  ' * f.indent + '|--', 'return', repr(value))
             f.indent -= 1
             return value
         return g
 
     fib = trace(fib)
-    print fib(4)
+    print(fib(4))
 
 This produces the following output.
 
@@ -378,7 +378,7 @@ called ``memoize``.
 
     fib = trace(fib)
     fib = memoize(fib)
-    print fib(4)
+    print(fib(4))
 
 If you notice, after ``memoize``, growth of ``fib`` has become linear.
 
@@ -467,7 +467,7 @@ the above example. It is also possible to specify an environment to ``exec``. ::
 
     >>> env = {'a' : 42}
     >>> exec('x = a+1', env)
-    >>> print env['x']
+    >>> print(env['x'])
     43
 
 It is also possible to create functions or classes dynamically using ``exec``,

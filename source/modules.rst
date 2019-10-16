@@ -9,7 +9,7 @@ A module is imported using the `import` statement.
 .. code-block:: python
 
     >>> import time
-    >>> print time.asctime()
+    >>> print(time.asctime())
     'Fri Mar 30 12:59:21 2012'
     
 In this example, we've imported the `time` module and called the `asctime` 
@@ -124,7 +124,7 @@ Under the hood, python stores the documentation as a special field called `__doc
 .. code-block:: python
 
     >>> import os
-    >>> print os.getcwd.__doc__
+    >>> print(os.getcwd.__doc__)
     getcwd() -> path
 
     Return a string representing the current working directory.
@@ -188,9 +188,9 @@ The `urllib` module provides functionality to download webpages.
 
 .. code-block:: python
 
-    >>> import urllib
-    >>> response = urllib.urlopen("http://python.org/")
-    >>> print response.headers
+    >>> from urllib.request import urlopen
+    >>> response = urlopen("http://python.org/")
+    >>> print(response.headers)
     Date: Fri, 30 Mar 2012 09:24:55 GMT
     Server: Apache/2.2.16 (Debian)
     Last-Modified: Fri, 30 Mar 2012 08:42:25 GMT
@@ -267,7 +267,7 @@ The following example prints names of all the files in a zip archive.
     import zipfile
     z = zipfile.ZipFile("a.zip")
     for name in z.namelist():
-        print name
+        print(name)
 
 The following example prints each file in the zip archive.    
 
@@ -276,10 +276,10 @@ The following example prints each file in the zip archive.
     import zipfile
     z = zipfile.ZipFile("a.zip")
     for name in z.namelist():
-        print
-        print "FILE:", name
-        print
-        print z.read(name)
+        print()
+        print("FILE:", name)
+        print()
+        print(z.read(name))
         
 .. problem:: Write a python program `zip.py` to create a zip file. The program should take name of zip file as first argument and files to add as rest of the arguments.
 

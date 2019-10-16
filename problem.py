@@ -1,7 +1,7 @@
 """Sphinx extension for adding problem directive.
 """
-
-from sphinx.util.compat import Directive
+from docutils.parsers.rst import Directive
+#from sphinx.util.compat import Directive
 from docutils import nodes
 import sys
 
@@ -18,7 +18,7 @@ class ProblemDirective(Directive):
     has_content = True
     required_arguments = 1
     optional_arguments = 0
-    final_argument_whitespace = True    
+    final_argument_whitespace = True
     option_spec = {}
 
     def run(self):
@@ -29,13 +29,13 @@ class ProblemDirective(Directive):
         inodes, messages = self.state.inline_text(self.arguments[0],
                                                   self.lineno)
         node.extend(inodes)
-        
+
         self.state.nested_parse(self.content, self.content_offset, node)
         return [node] + messages
-        
+
     def _create_node(self):
         return problem()
-        
+
 
 class ExampleDirective(ProblemDirective):
     def _create_node(self):

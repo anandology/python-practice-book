@@ -8,13 +8,13 @@ Python comes with an interactive interpreter. When you type ``python`` in your
 shell or command prompt, the python interpreter becomes active with a ``>>>``
 prompt and waits for your commands.
 
-.. code-block:: python
+.. code-block::
 
     $ python
-    Python 2.7.1 (r271:86832, Mar 17 2011, 07:02:35) 
-    [GCC 4.2.1 (Apple Inc. build 5664)] on darwin
+    Python 3.7.4 (v3.7.4:e09359112e, Jul  8 2019, 14:54:52)
+    [Clang 6.0 (clang-600.0.57)] on darwin
     Type "help", "copyright", "credits" or "license" for more information.
-    >>> 
+    >>>
 
 Now you can type any valid python expression at the prompt. python reads the
 typed expression, evaluates it and prints the result.
@@ -35,262 +35,224 @@ Open your text editor, type the following text and save it as ``hello.py``.
 
 .. code-block:: python
 
-    print "hello, world!"
+    print("hello, world!")
 
 And run this program by calling ``python hello.py``. Make sure you change to
 the directory where you saved the file before doing it.
 
-.. code-block:: python
+.. code-block:: shell
 
-    anand@bodhi ~$ python hello.py
+    $ python hello.py
     hello, world!
-    anand@bodhi ~$
 
-Text after ``#`` character in any line is considered as comment.
 
-.. code-block:: python
+Datatypes
+---------
 
-    # This is helloworld program
-    # run this as:
-    #    python hello.py
-    print "hello, world!"
+Python has support for all basic datatypes and also have very powerful compound datatypes.
 
-.. problem:: Create a python script to print  ``hello, world!`` four times.
+Python has integers. ::
 
-.. problem:: Create a python script with the following text and see the output.
+    >>> 1 + 2
+    3
 
-.. code-block:: python
+Python is pretty good at handling very large numbers as well. For example, let us try to
+compute 2 raises to the power of 1000. ::
 
-    1 + 2
+    >>> 2 ** 1000
+    10715086071862673209484250490600018105614048117055336074437503883703510511249361224931983788156958581275946729175531468251871452856923140435984577574698574803934567774824230985421074605062371141877954182153046474983581941267398767559165543946077062914571196477686542167660429831652624386837205668069376
+
+That is a pretty big numbers, isn't it? Can you count how many digits it has?
+
+Python has floating point numbers. ::
     
-If it doesn't print anything, what changes can you make to the program to print the value?
+    >>> 1.2 + 2.3
+    3.5
 
-Assignments
------------
+Python has strings. ::
 
-One of the building blocks of programming is associating a name to a value.
-This is called assignment. The associated name is usually called a *variable*.
+    >>> "hello world"
+    'hello world'
+    >>> print("hello world")
+    hello world
+
+String can be enclosed either in single quotes or double quotes. Both are exactly the same. In Python, strings are very versatile and it very easy to work with them. ::
+
+    >>> 'hello' + 'world'
+    'helloworld'
+
+    >>> "hello" * 3
+    'hellohellohello'
+
+    >>> print("=" * 40)
+    ========================================
+
+The built-in function ``len`` is used to find the length of a string. ::
+
+    >>> len('helloworld')
+    10
+
+Python supports multi-line strings too. They are enclosed in three double quotes or three single quotes.
+
+::
+
+    text = """This is a multi-line string.
+    Line 2
+    Line 3
+    and the text may have "quotes" too.
+    """
+
+::
+
+    >>> print(text)
+    This is a multi-line string.
+    Line 2
+    Line 3
+    and the text may have "quotes" too.
+
+
+Python supports the usual escape codes. ``\n`` indicates new line, ``\t`` indicates a tab etc.
 
 .. code-block:: python
 
-    >>> x = 4
-    >>> x * x
-    16
+    >>> print "a\nb\nc"
+    a
+    b
+    c
 
-In this example ``x`` is a variable and it's value is ``4``.
+Python has lists. Lists are one of the most useful data types Python.
 
-If you try to use a name that is not associated with any value, python gives an error message.
-
-.. code-block:: python
-
-    >>> foo
-    Traceback (most recent call last):
-      File "<stdin>", line 1, in ?
-    NameError: name 'foo' is not defined
-    >>> foo = 4
-    >>> foo
-    4
-
-If you re-assign a different value to an existing variable, the new value
-overwrites the old value.
-
-.. code-block:: python
-
-    >>> x = 4
+    >>> x = ["a", "b", "c"]
     >>> x
-    4
+    ['a', 'b', 'c']
+    >>> len(x)
+    3
+    >>> x[1]
+    'b'
+
+Python has another datatype called `tuple` for representing fixed width records. Tuples behave just like lists, but they are immutable.
+
+    >>> point = (2, 3)
+    >>> point
+    (2, 3)
+
+When writing tuples, the parenthesis can be omitted most of the times.
+
+    >>> point = 2, 3
+    >>> point
+    (2, 3)
+
+It is also possible to assign a tuple multiple values at once:
+
+    >>> yellow = (255, 255, 0)
+    >>> r, g, b = yellow
+    >>> print(r, g, b)
+    255 255 0
+
+Python has a ``dictionary`` datatype for representing name-value pairs.
+
+    >>> person = {"name": "Alice", "email": "alice@example.com"}
+    >>> person['name']
+    'Alice'
+    >>> person['email']
+    'alice@example.com'
+
+Python has a ``set`` datatype too. A set is an unordered collection of elements.
+
+    >>> x = {1, 2, 3, 2, 1}
+    >>> x
+    {1, 2, 3}
+
+Python has a ``boolean`` type. It has two special values ``True`` and ``False`` to represent truth and false.
+
+Finally, Python has a special type called ``None`` to represent nothing.
+
+    >>> x = None
+    >>> print(x)
+    None
+
+Now you know most of the common data structures of Python. While they look very simple, mastering them takes a bit of practice. Make sure you go through all the examples and the practice problems in the subsequent sections.
+
+Variables
+---------
+
+You've already seen variables in the previous section. Let us look at them closely now.
+
+In Python, variables don't have a type. They are just placeholders which can hold any type of values.
+
+    >>> x = 5
+    >>> x
+    5
     >>> x = 'hello'
     >>> x
     'hello'
- 
-It is possible to do multiple assignments at once.
 
-.. code-block:: python
+It is important to notice the difference between variables and strings. Often new programmers get tricked by this. Can you spot any error in the following example?
 
-    >>> a, b = 1, 2
-    >>> a
-    1
-    >>> b
-    2
-    >>> a + b
-    3
-
-Swapping values of 2 variables in python is very simple.
-
-.. code-block:: python
-
-    >>> a, b = 1, 2
-    >>> a, b = b, a
-    >>> a
-    2
-    >>> b
-    1
-
-When executing assignments, python evaluates the right hand side first and then assigns those values to the variables specified in the left hand side.
-
-.. problem:: What will be output of the following program.
-
-.. code-block:: python
-
-    x = 4
-    y = x + 1
-    x = 2
-    print x, y
-
-.. problem:: What will be the output of the following program.
-
-.. code-block:: python
-
-    x, y = 2, 6
-    x, y = y, x + 2
-    print x, y
-    
-.. problem:: What will be the output of the following program.
-
-.. code-block:: python
-
-    a, b = 2, 3
-    c, b = a, c + 1
-    print a, b, c
-    
-Numbers
--------
-
-We already know how to work with numbers.
-
-.. code-block:: python
- 
-    >>> 42
-    42
-    >>> 4 + 2
-    6
-
-Python also supports decimal numbers.
-
-.. code-block:: python
- 
-    >>> 4.2
-    4.2
-    >>> 4.2 + 2.3
-    6.5
-
-Python supports the following operators on numbers.
-
-* ``+`` addition
-* ``-`` subtraction
-* ``*`` multiplication
-* ``/`` division
-* ``**`` exponent
-* ``%`` remainder
-
-Let's try them on integers.
-
-.. code-block:: python
- 
-    >>> 7 + 2
-    9
-    >>> 7 - 2
-    5
-    >>> 7 * 2
-    14
-    >>> 7 / 2
-    3
-    >>> 7 ** 2
-    49
-    >>> 7 % 2
-    1
-
-If you notice, the result ``7 / 2`` is ``3`` not ``3.5``. It is because the ``/`` operator when working on integers, produces only an integer. Lets see what happens when we try it with decimal numbers:
-
-.. code-block:: python
- 
-    >>> 7.0 / 2.0
-    3.5
-    >>> 7.0 / 2
-    3.5
-    >>> 7 / 2.0
-    3.5
-
-The operators can be combined. 
-
-.. code-block:: python
- 
-    >>> 7 + 2 + 5 - 3
-    11
-    >>> 2 * 3 + 4
-    10
-
-It is important to understand how these compound expressions are evaluated. The
-operators have precedence, a kind of priority that determines which operator is
-applied first. Among the numerical operators, the precedence of operators is as
-follows, from low precedence to high.
-
-* ``+``, ``-``
-* ``*``, ``/``, ``%``
-* ``**``
-
-When we compute ``2 + 3 * 4``, ``3 * 4`` is computed first as the precedence of
-``*`` is higher than ``+`` and then the result is added to 2.
-
-.. code-block:: python
- 
-    >>> 2 + 3 * 4
-    14
-    
-We can use parenthesis to specify the explicit groups.
-
-.. code-block:: python
- 
-    >>> (2 + 3) * 4
-    20
-
-All the operators except ``**`` are left-associcate, that means that the application of the operators starts from left to right.
-
-.. code-block:: python
-
-    1 + 2 + 3 * 4 + 5
-      ↓
-      3   + 3 * 4 + 5
-              ↓
-      3   +   12  + 5  
-          ↓
-          15      + 5
-                  ↓
-                 20
-
-Strings
--------
-
-Strings what you use to represent text.
-
-Strings are a sequence of characters, enclosed in single quotes or double quotes.
-
-.. code-block:: python
-
-    >>> x = "hello"
-    >>> y = 'world'
-    >>> print x, y
-    hello world
-
-There is difference between single quotes and double quotes, they can used interchangebly.
-
-Multi-line strings can be written using three single quotes or three double quotes.
-
-.. code-block:: python
-
-    x = """This is a multi-line string
-    written in
-    three lines."""
-    print x
-    
-    y = '''multi-line strings can be written
-    using three single quote characters as well.
-    The string can contain 'single quotes' or "double quotes"
-    in side it.'''
-    print y
+    name = "Alice"
+    print("name")
 
 Functions
 ---------
+
+Python has many built-in functions. The ``print`` is the most commonly used built-in function.
+
+    >>> print('hello')
+    hello
+    >>> print('hello', 1, 2, 3)
+    hello 1 2 3
+
+We've also see the ``len`` function in the previous sections. The ``len`` function computes the length of a string, list or other collections.
+
+    >>> len("hello")
+    5
+    >>> len(['a', 'b', 'c'])
+    3
+
+One important thing about Python is that it doesn't allow operations on incompatible data types. For example::
+
+    >>> 5 + "2"
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    TypeError: unsupported operand type(s) for +: 'int' and 'str'
+
+That is because it is not possible to add a number to a string. We need to either convert ``5`` into a string or ``"2"` into a number. The built-in function ``int`` converts a string into a number and the ``str`` function converts any value into a string.
+
+    >>> int("5")
+    5
+    >>> str(5)
+    '5'
+
+    >>> 5 + int("2")
+    7
+    >>> str(5) + "2"
+    '52'
+
+Example: Counting the number of digits in a number
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Let us write a program to compute number of digits in a number. Let us look at some numbers first.
+
+    >>> 12345
+    12345
+
+    >>> 2 ** 100
+    1267650600228229401496703205376
+
+    >>> 2 ** 1000
+    10715086071862673209484250490600018105614048117055336074437503883703510511249361224931983788156958581275946729175531468251871452856923140435984577574698574803934567774824230985421074605062371141877954182153046474983581941267398767559165543946077062914571196477686542167660429831652624386837205668069376
+
+We can combile the previously mentioned built-in functions to solve this.
+
+    >>> len(str(12345))
+    5
+    >>> len(str(2 ** 100))
+    31
+    >>> len(str(2 * 1000))
+    302
+
+Writing Custom Functions
+------------------------
 
 Just like a value can be associated with a name, a piece of logic can also be
 associated with a name by defining a function. 
@@ -541,8 +503,8 @@ variables can be called separately.
 .. code-block:: python
 
     >>> f = x.upper
-    >>> print f()
-    HELLO
+    >>> f()
+    'HELLO'
 
 .. problem:: Write a function `istrcmp` to compare two strings, ignoring the case.
 
@@ -628,16 +590,8 @@ There are few logical operators to combine boolean values.
     x = 4
     y = 5
     p = x < y or x < z
-    print p
-    
-.. problem:: What will be output of the following program?
+    print(p)
 
-.. code-block:: python
-
-    True, False = False, True
-    print True, False
-    print 2 < 3
-    
 The if statement
 ^^^^^^^^^^^^^^^^
 
@@ -646,18 +600,18 @@ The ``if`` statement is used to execute a piece of code only when a boolean expr
 .. code-block:: python
 
     >>> x = 42
-    >>> if x % 2 == 0: print 'even'
+    >>> if x % 2 == 0: print('even')
     even
     >>>
 
-In this example, ``print 'even'`` is executed only when ``x % 2 == 0`` is ``True``. 
+In this example, ``print('even')`` is executed only when ``x % 2 == 0`` is ``True``.
 
 The code associated with ``if`` can be written as a separate indented block of code, which is often the case when there is more than one statement to be executed.    
 
 .. code-block:: python
 
     >>> if x % 2 == 0:
-    ...     print 'even'
+    ...     print('even')
     ...
     even
     >>>
@@ -669,9 +623,9 @@ The ``if`` statement can have optional ``else`` clause, which is executed when t
 
     >>> x = 3
     >>> if x % 2 == 0:
-    ...     print 'even'
+    ...     print('even')
     ... else:
-    ...     print 'odd'
+    ...     print('odd')
     ...
     odd
     >>>
@@ -684,11 +638,11 @@ useful to avoid excessive indentation.
         
     >>> x = 42
     >>> if x < 10: 
-    ...        print 'one digit number'
+    ...        print('one digit number')
     ... elif x < 100:
-    ...     print 'two digit number'
+    ...     print('two digit number')
     ... else: 
-    ...     print 'big number'
+    ...     print('big number')
     ...
     two digit number
     >>>
@@ -700,9 +654,9 @@ useful to avoid excessive indentation.
 
     x = 2
     if x == 2:
-        print x
+        print(x)
     else:
-        print y
+        print(y)
 
 .. problem:: What happens the following code is executed? Will it give any error? Explain the reasons.
 
@@ -710,7 +664,7 @@ useful to avoid excessive indentation.
 
     x = 2
     if x == 2:
-        print x
+        print(x)
     else:
         x +
 
@@ -792,7 +746,7 @@ passed to it.
 .. code-block:: python
 
     import sys
-    print sys.argv[1]
+    print(sys.argv[1])
 
 Lets try running it.
 

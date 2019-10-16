@@ -7,7 +7,7 @@ Iterators
 We use ``for`` statement for looping over a list. ::
 
     >>> for i in [1, 2, 3, 4]: 
-    ...     print i,
+    ...     print(i)
     ... 
     1
     2
@@ -17,7 +17,7 @@ We use ``for`` statement for looping over a list. ::
 If we use it with a string, it loops over its characters. ::
 
     >>> for c in "python":
-    ...     print c
+    ...     print(c)
     ...
     p
     y
@@ -29,7 +29,7 @@ If we use it with a string, it loops over its characters. ::
 If we use it with a dictionary, it loops over its keys. ::
 
     >>> for k in {"x": 1, "y": 2}:
-    ...     print k
+    ...     print(k)
     ...
     y
     x
@@ -37,7 +37,7 @@ If we use it with a dictionary, it loops over its keys. ::
 If we use it with a file, it loops over lines of the file. ::
 
     >>> for line in open("a.txt"):
-    ...     print line,
+    ...     print(line, end="")
     ...
     first line
     second line
@@ -63,13 +63,13 @@ The built-in function ``iter`` takes an iterable object and returns an iterator.
     >>> x = iter([1, 2, 3])
     >>> x
     <listiterator object at 0x1004ca850>
-    >>> x.next()
+    >>> next(x)
     1
-    >>> x.next()
+    >>> next(x)
     2
-    >>> x.next()
+    >>> next(x)
     3
-    >>> x.next()
+    >>> next(x)
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
     StopIteration
@@ -77,7 +77,7 @@ The built-in function ``iter`` takes an iterable object and returns an iterator.
 Each time we call the ``next`` method on the iterator gives us the next
 element. If there are no more elements, it raises a `StopIteration`.
 
-Iterators are implemented as classes. Here is an iterator that works like built-in ``xrange`` function. ::
+Iterators are implemented as classes. Here is an iterator that works like built-in ``range`` function. ::
 
     class yrange:
         def __init__(self, n):
@@ -87,7 +87,7 @@ Iterators are implemented as classes. Here is an iterator that works like built-
         def __iter__(self):
             return self
 
-        def next(self):
+        def __next__(self):
             if self.i < self.n:
                 i = self.i
                 self.i += 1
@@ -98,22 +98,22 @@ Iterators are implemented as classes. Here is an iterator that works like built-
 The ``__iter__`` method is what makes an object iterable. Behind the scenes, the
 `iter` function calls ``__iter__`` method on the given object.
 
-The return value of ``__iter__`` is an iterator. It should have a ``next``
+The return value of ``__iter__`` is an iterator. It should have a ``__next__``
 method and raise ``StopIteration`` when there are no more elements.
 
 Lets try it out::
 
     >>> y = yrange(3)
-    >>> y.next()
+    >>> next(y)
     0
-    >>> y.next()
+    >>> next(y)
     1
-    >>> y.next()
+    >>> next(y)
     2
-    >>> y.next()
+    >>> next(y)
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
-      File "<stdin>", line 14, in next
+      File "<stdin>", line 14, in __next__
     StopIteration
 
 Many built-in functions accept iterators as arguments. ::
@@ -143,7 +143,7 @@ the ``__iter__`` method returned ``self``. It need not be the case always. ::
             # Adding this functions to make them so.
             return self
 
-        def next(self):
+        def __next__(self):
             if self.i < self.n:
                 i = self.i
                 self.i += 1
@@ -168,15 +168,15 @@ If both iteratable and iterator are the same object, it is consumed in a single 
    iterates it from the reverse direction. ::
 
     >>> it = reverse_iter([1, 2, 3, 4])
-    >>> it.next()
+    >>> next(it)
     4
-    >>> it.next()
+    >>> next(it)
     3
-    >>> it.next()
+    >>> next(it)
     2
-    >>> it.next()
+    >>> next(it)
     1
-    >>> it.next()
+    >>> next(it)
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
     StopIteration
@@ -197,13 +197,13 @@ Each time the ``yield`` statement is executed the function generates a new value
     >>> y = yrange(3)
     >>> y
     <generator object yrange at 0x401f30>
-    >>> y.next()
+    >>> next(y)
     0
-    >>> y.next()
+    >>> next(y)
     1
-    >>> y.next()
+    >>> next(y)
     2
-    >>> y.next()
+    >>> next(y)
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
     StopIteration
@@ -223,30 +223,30 @@ first time, the function starts executing until it reaches ``yield`` statement.
 The yielded value is returned by the ``next`` call. 
 
 The following example demonstrates the interplay between ``yield`` and call to
-``next`` method on generator object.
+``__next__`` method on generator object.
 
     >>> def foo():
-    ...     print "begin"
+    ...     print("begin")
     ...     for i in range(3):
-    ...         print "before yield", i
+    ...         print("before yield", i)
     ...         yield i
-    ...         print "after yield", i
-    ...     print "end"
+    ...         print("after yield", i)
+    ...     print("end")
     ... 
     >>> f = foo()
-    >>> f.next()
+    >>> next(f)
     begin
     before yield 0
     0
-    >>> f.next()
+    >>> next(f)
     after yield 0
     before yield 1
     1
-    >>> f.next()
+    >>> next(f)
     after yield 1
     before yield 2
     2
-    >>> f.next()
+    >>> next(f)
     after yield 2
     end
     Traceback (most recent call last):
@@ -273,12 +273,12 @@ Lets see an example::
         result = []
         try:
             for i in range(n):
-                result.append(seq.next())
+                result.append(next(seq))
         except StopIteration:
             pass
         return result
 
-    print take(5, squares()) # prints [1, 4, 9, 16, 25]
+    print(take(5, squares())) # prints [1, 4, 9, 16, 25]
 
 
 Generator Expressions
@@ -313,7 +313,7 @@ Lets say we want to find first 10 (or any n) pythogorian triplets. A triplet
 It is easy to solve this problem if we know till what value of `z` to test for.
 But we want to find first n pythogorian triplets. ::
 
-    >>> pyt = ((x, y, z) for z in integers() for y in xrange(1, z) for x in range(1, y) if x*x + y*y == z*z)
+    >>> pyt = ((x, y, z) for z in integers() for y in range(1, z) for x in range(1, y) if x*x + y*y == z*z)
     >>> take(10, pyt)
     [(3, 4, 5), (6, 8, 10), (5, 12, 13), (9, 12, 15), (8, 15, 17), (12, 16, 20), (15, 20, 25), (7, 24, 25), (10, 24, 26), (20, 21, 29)]
 
@@ -329,7 +329,7 @@ The traditional way to implement it is::
     def cat(filenames):
         for f in filenames:
             for line in open(f):
-                print line,
+                print(line, end="")
 
 Now, lets say we want to print only the line which has a particular substring,
 like ``grep`` command in unix. ::
@@ -338,7 +338,7 @@ like ``grep`` command in unix. ::
         for f in filenames:
             for line in open(f):
                 if pattern in line:
-                    print line,
+                    print(line, end="")
 
 Both these programs have lot of code in common. It is hard to move the common part
 to a function. But with generators makes it possible to do it. ::
@@ -353,7 +353,7 @@ to a function. But with generators makes it possible to do it. ::
 
     def printlines(lines):
         for line in lines:
-            print line,
+            print(line, end="")
 
     def main(pattern, filenames):
         lines = readfiles(filenames)
@@ -405,7 +405,7 @@ Lets look at some of the interesting functions.
 **izip** -- iterable version of zip ::
 
     >>> for x, y in itertools.izip(["a", "b", "c"], [1, 2, 3]):
-    ...     print x, y
+    ...     print(x, y)
     ...
     a 1
     b 2
@@ -420,7 +420,7 @@ Lets look at some of the interesting functions.
 
     >>> it = iter(range(5))
     >>> x, it1 = peep(it)
-    >>> print x, list(it1)
+    >>> print(x, list(it1))
     0 [0, 1, 2, 3, 4]
 
 
@@ -430,7 +430,7 @@ Lets look at some of the interesting functions.
     >>> list(enumerate(["a", "b", "c"])
     [(0, "a"), (1, "b"), (2, "c")]
     >>> for i, c in enumerate(["a", "b", "c"]):
-    ...     print i, c
+    ...     print(i, c)
     ...
     0 a
     1 b
