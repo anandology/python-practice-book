@@ -27,16 +27,17 @@ A List can contain another list as member.
     >>> b
     [1.5, 2, [1, 2]]
 
-The built-in function ``range`` can be used to create a list of integers.
+The built-in function ``range`` can be used to create a sequence of consequetive integers.
 
-.. code-block:: python
+The `range` function returns a specical range object that behaves like a list. To get a real list from it, you can use the `list` function.
 
-    >>> range(4)
-    [0, 1, 2, 3]
-    >>> range(3, 6)
-    [3, 4, 5]
-    >>> range(2, 10, 3)
-    [2, 5, 8]
+    >>> x = range(1, 4)
+    >>> x
+    range(1, 4)
+    >>> x[0]
+    1
+    >>> len(x)
+    3
 
 The built-in function ``len`` can be used to find the length of a list.
 
@@ -167,11 +168,11 @@ Values can be appended to a list by calling ``append`` method on list. A method 
 
 	x = [0, 1, [2]]
 	x[2][0] = 3
-	print x
+	print(x)
 	x[2].append(4)
-	print x
+	print(x)
 	x[2] = 2
-	print x
+	print(x)
 
 The for Statement
 ^^^^^^^^^^^^^^^^^
@@ -181,10 +182,10 @@ Python provides ``for`` statement to iterate over a list. A ``for`` statement ex
 .. code-block:: python
    
     for x in [1, 2, 3, 4]:
-        print x
+        print(x)
    
     for i  in range(10):
-       print i, i*i, i*i*i
+       print(i, i*i, i*i*i)
 
 The built-in function ``zip`` takes two lists and returns list of pairs. ::
 
@@ -196,7 +197,7 @@ It is handy when we want to iterate over two lists together. ::
     names = ["a", "b", "c"]
     values = [1, 2, 3]
     for name, value in zip(names, values):
-        print name, value
+        print(name, value)
 
 
 .. problem:: Python has a built-in function ``sum`` to find sum of all elements of a list. Provide an implementation for ``sum``. 
@@ -779,7 +780,7 @@ The following example finds all Pythagorean triplets using numbers below 25. ``(
     >>> enumerate(["a", "b", "c"])
     [(0, "a"), (1, "b"), (2, "c")]
     >>> for index, value in enumerate(["a", "b", "c"]):
-    ...     print index, value
+    ...     print(index, value)
     0 a
     1 b
     2 c
@@ -798,7 +799,7 @@ The following example finds all Pythagorean triplets using numbers below 25. ``(
 
 .. code-block:: python
 
-    >>> print open('a.csv').read()
+    >>> print(open('a.csv').read())
     a,b,c
     1,2,3
     2,3,4
@@ -810,7 +811,7 @@ The following example finds all Pythagorean triplets using numbers below 25. ``(
 
 .. code-block:: python
 
-    >>> print open('a.txt').read()
+    >>> print(open('a.txt').read())
     # elements are separated by ! and comment indicator is #
     a!b!c
     1!2!3
@@ -887,12 +888,12 @@ The ``for`` statement can be used to iterate over a dictionary.
 
 .. code-block:: python
 
-    >>> for key in a: print key
+    >>> for key in a: print(key)
     ...
     x
     y
     z
-    >>> for key, value in a.items(): print key, value
+    >>> for key, value in a.items(): print(key, value)
     ...
     x 1
     y 2
@@ -973,7 +974,7 @@ We can combine these two functions to find frequency of all words in a file.
     def main(filename):
         frequency = word_frequency(read_words(filename))
         for word, count in frequency.items():
-            print word, count
+            print(word, count)
             
     if __name__ == "__main__":
         import sys
@@ -1027,7 +1028,7 @@ Just like ``globals`` python also provides a function ``locals`` which gives all
 
 .. code-block:: python
 
-    >>> def f(a, b): print locals()
+    >>> def f(a, b): print(locals())
     ...
     >>> f(1, 2)
     {'a': 1, 'b': 2}
