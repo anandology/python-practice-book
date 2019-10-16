@@ -95,7 +95,7 @@ Let us try to create a little more sophisticated account type where the account 
             
         def withdraw(self, amount):
             if self.balance - amount < self.minimum_balance:
-                print 'Sorry, minimum balance must be maintained.'
+                print('Sorry, minimum balance must be maintained.')
             else:
                 BankAccount.withdraw(self, amount)
 
@@ -116,8 +116,8 @@ Let us try to create a little more sophisticated account type where the account 
 
     a = A()
     b = B()
-    print a.f(), b.f()
-    print a.g(), b.g()
+    print(a.f(), b.f())
+    print(a.g(), b.g())
 
 **Example: Drawing Shapes**
 
@@ -136,7 +136,7 @@ Let us try to create a little more sophisticated account type where the account 
             return self.data[row][col]
             
         def display(self):
-            print "\n".join(["".join(row) for row in self.data])
+            print("\n".join(["".join(row) for row in self.data]))
 
     class Shape:
         def paint(self, canvas): pass
@@ -316,7 +316,7 @@ Exceptions are handled by using the try-except statements.
             for row in parse_csv(filename):
                 print row
         except IOError:
-            print >> sys.stderr, "The given file doesn't exist: ", filename
+            print("The given file doesn't exist: ", filename, file=sys.stderr)
             sys.exit(1)
 
 This above example prints an error message and exits with an error status when an IOError is encountered.
@@ -339,13 +339,13 @@ The `except` statement can be written in multiple ways:
     # catch one exception, but provide the exception object
     try:
         ...
-    except IOError, e:
+    except IOError as e:
         ...
 
     # catch more than one exception
     try:
         ...
-    except (IOError, ValueError), e:
+    except (IOError, ValueError) as e:
         ...
 
 It is possible to have more than one `except` statements with one `try`.
@@ -354,11 +354,11 @@ It is possible to have more than one `except` statements with one `try`.
 
     try:
         ...
-    except IOError, e:
-        print >> sys.stderr, "Unable to open the file (%s): %s" % (str(e), filename)
+    except IOError as e:
+        print("Unable to open the file (%s): %s" % (str(e), filename), file=sys.stderr)
         sys.exit(1)
-    except FormatError, e:
-        print >> sys.stderr, "File is badly formatted (%s): %s" % (str(e), filename)
+    except FormatError as e:
+        print("File is badly formatted (%s): %s" % (str(e), filename), file=sys.stderr)
 
 The `try` statement can have an optional `else` clause, which is 
 executed only if no exception is raised in the try-block.
@@ -367,11 +367,11 @@ executed only if no exception is raised in the try-block.
 
     try:
         ...
-    except IOError, e:
-        print >> sys.stderr, "Unable to open the file (%s): %s" % (str(e), filename)
+    except IOError as e:
+        print("Unable to open the file (%s): %s" % (str(e), filename), file=sys.stderr)
         sys.exit(1)
     else:
-        print "successfully opened the file", filename
+        print("successfully opened the file", filename)
 
 There can be an optional `else` clause with a `try` statement, which is executed 
 irrespective of whether or not exception has occured.
@@ -380,8 +380,8 @@ irrespective of whether or not exception has occured.
 
     try:
         ...
-    except IOError, e:
-        print >> sys.stderr, "Unable to open the file (%s): %s" % (str(e), filename)
+    except IOError as e:
+        print("Unable to open the file (%s): %s" % (str(e), filename), file=sys.stderr)
         sys.exit(1)
     finally:
         delete_temp_files()
@@ -415,14 +415,14 @@ All the exceptions are extended from the built-in `Exception` class.
 .. code-block:: python
 
     try:
-        print "a"
+        print("a")
         raise Exception("doom")
     except:
-        print "b"
+        print("b")
     else:
-        print "c"
+        print("c")
     finally:
-        print "d"
+        print("d")
 
 
 .. problem:: What will be the output of the following program?
@@ -431,13 +431,13 @@ All the exceptions are extended from the built-in `Exception` class.
 
     def f():
         try:
-            print "a"
+            print("a")
             return
         except:
-            print "b"
+            print("b")
         else:
-            print "c"
+            print("c")
         finally:
-            print "d"
+            print("d")
             
     f()
