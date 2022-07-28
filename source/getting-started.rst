@@ -115,7 +115,7 @@ Python supports the usual escape codes. ``\n`` indicates new line, ``\t`` indica
 
 .. code-block:: python
 
-    >>> print "a\nb\nc"
+    >>> print("a\nb\nc")
     a
     b
     c
@@ -317,7 +317,7 @@ Lets look at an example.
         y = x + 1
         return y
     incr(5)
-    print x, y 
+    print(x, y)
 
 
 Variables assigned in a function, including the arguments are called the local
@@ -353,9 +353,9 @@ However, you have to explicitly declare a variable as ``global`` to modify it.
 
 .. code-block:: python
 
-    print square(5)
-    print square(2*5)
-    
+    print(square(5))
+    print(square(2*5))
+
 .. problem:: What will be the output of the following program?
 
 .. code-block:: python
@@ -363,8 +363,8 @@ However, you have to explicitly declare a variable as ``global`` to modify it.
 	x = 1
 	def f():
             return x
-	print x
-	print f()
+	print(x)
+	print(f())
 
 .. problem:: What will be the output of the following program?
 
@@ -374,9 +374,9 @@ However, you have to explicitly declare a variable as ``global`` to modify it.
 	def f():
             x = 2
             return x
-	print x
-	print f()
-	print x
+	print(x)
+	print(f())
+	print(x)
 
 .. problem:: What will be the output of the following program?
 
@@ -387,9 +387,9 @@ However, you have to explicitly declare a variable as ``global`` to modify it.
 		y = x
 		x = 2
 		return x + y
-	print x
-	print f()
-	print x
+	print(x)
+	print(f())
+	print(x)
 
 .. problem:: What will be the output of the following program?
 
@@ -400,8 +400,8 @@ However, you have to explicitly declare a variable as ``global`` to modify it.
         x = a * a
         return x
     y = f(3)
-    print x, y
-	
+    print(x, y)
+
 Functions can be called with keyword arguments.
 
 .. code-block:: python
@@ -494,9 +494,9 @@ For example, ``upper`` is a method available on string objects.
 .. code-block:: python
 
     >>> x = "hello"
-    >>> print x.upper()
+    >>> print(x.upper())
     HELLO
-    
+
 As already mentioned, methods are also functions. They can be assigned to other
 variables can be called separately.
 
@@ -573,16 +573,16 @@ There are few logical operators to combine boolean values.
     False
     >>> 2 < 3 or 5 < 4
     True
-    
+
 .. problem:: What will be output of the following program?
 
 .. code-block:: python
 
-    print 2 < 3 and 3 > 1
-    print 2 < 3 or 3 > 1
-    print 2 < 3 or not 3 > 1
-    print 2 < 3 and not 3 > 1
-    
+    print(2 < 3 and 3 > 1)
+    print(2 < 3 or 3 > 1)
+    print(2 < 3 or not 3 > 1)
+    print(2 < 3 and not 3 > 1)
+
 .. problem:: What will be output of the following program?
 
 .. code-block:: python
